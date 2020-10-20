@@ -1,0 +1,5 @@
+{
+  "entrypoint": "example.extension.ExampleExtension",
+  "name": "Example extension",
+  "version": "1.0.0-EXAMPLE"
+}
