@@ -1,8 +1,8 @@
-package example.extension
+package world.cepi.chatextension
 
 import net.minestom.server.extensions.Extension;
 
-class ExampleExtension : Extension() {
+class ChatExtension : Extension() {
 
     override fun initialize() {
         logger.info("[ExampleExtension] has been enabled!")
