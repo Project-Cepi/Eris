@@ -9,7 +9,7 @@ plugins {
 repositories {
     // Use jcenter for resolving dependencies.
     jcenter()
-
+    mavenCentral()
     // Use mavenCentral
     maven(url = "https://repo1.maven.org/maven2/")
     maven(url = "http://repo.spongepowered.org/maven")
@@ -42,6 +42,9 @@ dependencies {
 
     // Implement Klaxon
     implementation("com.beust:klaxon:5.0.1")
+
+    // Javacord
+    implementation("org.javacord", "javacord", "3.1.1")
 }
 
 tasks.withType<Test> {
