@@ -10,17 +10,3 @@ data class DiscordConfig(
     val console: Boolean = false,
     val consoleChannel: Int = 0
 )
-{
-    companion object {
-        fun get(): DiscordConfig {
-            val configFile = File("./discord-config.json")
-            val klaxon = Klaxon()
-
-            return if (!configFile.exists()) {
-                configFile.writeText(klaxon.toJsonString(DiscordConfig()))
-                DiscordConfig()
-            } else klaxon.parse<DiscordConfig>(configFile.readText())!!
-
-        }
-    }
-}
