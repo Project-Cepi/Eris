@@ -17,16 +17,19 @@ class ChatExtension : Extension() {
         logger.info("[ExampleExtension] has been disabled!")
     }
 
-    val config: DiscordConfig
-    get() {
-        val configFile = File("./discord-config.json")
-        val klaxon = Klaxon()
+    companion object {
+        val config: DiscordConfig
+            get() {
+                val configFile = File("./discord-config.json")
+                val klaxon = Klaxon()
 
-        return if (!configFile.exists()) {
-            configFile.writeText(klaxon.toJsonString(DiscordConfig()))
-            DiscordConfig()
-        } else klaxon.parse<DiscordConfig>(configFile.readText())!!
+                return if (!configFile.exists()) {
+                    configFile.writeText(klaxon.toJsonString(DiscordConfig()))
+                    DiscordConfig()
+                } else klaxon.parse<DiscordConfig>(configFile.readText())!!
+            }
+
+        val discord: DiscordApi? = if (config.enabled) DiscordApiBuilder().setToken(config.token).login().join() else null
+
     }
-
-    val discord: DiscordApi? = if (config.enabled) DiscordApiBuilder().setToken(config.token).login().join() else null
 }
