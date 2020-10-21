@@ -1,6 +1,8 @@
 package world.cepi.chatextension
 
 import com.beust.klaxon.Klaxon
+import com.google.gson.Gson
+import com.google.gson.JsonParser
 import net.minestom.server.extensions.Extension;
 import org.javacord.api.DiscordApi
 import org.javacord.api.DiscordApiBuilder
@@ -21,12 +23,12 @@ class ChatExtension : Extension() {
         val config: DiscordConfig
             get() {
                 val configFile = File("./discord-config.json")
-                val klaxon = Klaxon()
+                val gson = Gson()
 
                 return if (!configFile.exists()) {
-                    configFile.writeText(klaxon.toJsonString(DiscordConfig()))
+                    configFile.writeText(gson.toJson(DiscordConfig()))
                     DiscordConfig()
-                } else klaxon.parse<DiscordConfig>(configFile.readText())!!
+                } else gson.fromJson(configFile.reader(), DiscordConfig::class.java)
             }
 
         val discord: DiscordApi? = if (config.enabled) DiscordApiBuilder().setToken(config.token).login().join() else null

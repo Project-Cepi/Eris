@@ -7,7 +7,7 @@ import world.cepi.chatextension.ChatExtension
 
 fun discordToChat(event: MessageCreateEvent) {
     val config = ChatExtension.config
-    if (event.channel.id.toInt() != config.channel) return
+    if (event.channel.id != config.channel) return
     if (event.messageAuthor.isYourself) return
 
     for (player in MinecraftServer.getConnectionManager().onlinePlayers) {

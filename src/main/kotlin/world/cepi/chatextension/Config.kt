@@ -6,7 +6,7 @@ import java.io.File
 data class DiscordConfig(
     val enabled: Boolean = false,
     val token: String = "",
-    val channel: Int = 0,
+    val channel: Long = 0,
     val console: Boolean = false,
-    val consoleChannel: Int = 0
+    val consoleChannel: Long = 0
 )
