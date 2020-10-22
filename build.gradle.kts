@@ -4,6 +4,9 @@ plugins {
 
     // Apply the application plugin to add support for building a jar
     java
+
+    // Apply maven-publish to publish to github packages
+    `maven-publish`
 }
 
 repositories {
@@ -51,4 +54,24 @@ tasks.withType<Test> {
 java {
     sourceCompatibility = JavaVersion.VERSION_11
     targetCompatibility = JavaVersion.VERSION_11
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("default") {
+            from(components["java"])
+            // Include any other artifacts here, like javadocs
+        }
+    }
+
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/Project-Cepi/ChatExtension")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
 }

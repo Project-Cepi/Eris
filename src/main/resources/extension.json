@@ -1,5 +1,5 @@
 {
-  "entrypoint": "example.extension.ExampleExtension",
-  "name": "Example extension",
-  "version": "1.0.0-EXAMPLE"
+  "entrypoint": "world.cepi.chatextension.ChatExtension",
+  "name": "Chat extension",
+  "version": "0.0.1-SNAPSHOT"
 }
