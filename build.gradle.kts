@@ -56,13 +56,6 @@ java {
     targetCompatibility = JavaVersion.VERSION_11
 }
 tasks.jar {
-    manifest {
-        attributes (
-                "Main-Class" to "world.cepi.sabre.SabreKt",
-                "Multi-Release" to true
-        )
-    }
-
     from(configurations.compileClasspath.get().map { if (it.isDirectory) it else zipTree(it) }) {
         exclude("META-INF/*.RSA", "META-INF/*.SF","META-INF/*.DSA")
     }
