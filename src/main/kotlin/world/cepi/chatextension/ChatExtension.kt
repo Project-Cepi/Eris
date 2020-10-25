@@ -18,7 +18,7 @@ class ChatExtension : Extension() {
         logger.info("[ExampleExtension] has been enabled!")
         logger.info("[ChatExtension] Your discord bot can be invited with this link: ${discord?.createBotInvite()}")
 
-        connectionManager.addPlayerInitialization {player -> registerEvents(player) }
+        MinecraftServer.getConnectionManager().addPlayerInitialization { player -> player.addEventCallback(PlayerChatEvent::class.java) { event -> chatToDiscord(event)} }
     }
 
     override fun terminate() {
@@ -40,8 +40,4 @@ class ChatExtension : Extension() {
         val discord: DiscordApi? = if (config.enabled) DiscordApiBuilder().setToken(config.token).login().join() else null
 
     }
-}
-
-fun registerEvents(player: Player) {
-    player.addEventCallback(PlayerChatEvent::class.java) {event -> chatToDiscord(event)}
 }
