@@ -1,13 +1,10 @@
 package world.cepi.chatextension
 
-import com.beust.klaxon.Klaxon
 import com.google.gson.Gson
-import com.google.gson.JsonParser
 import net.minestom.server.MinecraftServer
 import net.minestom.server.entity.Player
 import net.minestom.server.event.player.PlayerChatEvent
-import net.minestom.server.extensions.Extension;
-import net.minestom.server.listener.ChatMessageListener
+import net.minestom.server.extensions.Extension
 import org.javacord.api.DiscordApi
 import org.javacord.api.DiscordApiBuilder
 import world.cepi.chatextension.discord.chatToDiscord
