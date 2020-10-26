@@ -7,6 +7,7 @@ import net.minestom.server.event.player.PlayerChatEvent
 import net.minestom.server.extensions.Extension
 import org.javacord.api.DiscordApi
 import org.javacord.api.DiscordApiBuilder
+import world.cepi.chatextension.discord.DiscordToChat
 import world.cepi.chatextension.discord.chatToDiscord
 import java.io.File
 
@@ -19,6 +20,8 @@ class ChatExtension : Extension() {
         logger.info("[ChatExtension] Your discord bot can be invited with this link: ${discord?.createBotInvite()}")
 
         MinecraftServer.getConnectionManager().addPlayerInitialization { player -> player.addEventCallback(PlayerChatEvent::class.java) { event -> chatToDiscord(event)} }
+
+        discord?.addListener(DiscordToChat())
     }
 
     override fun terminate() {
