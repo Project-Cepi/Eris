@@ -1,8 +1,6 @@
 package world.cepi.chatextension
 
-import com.beust.klaxon.Klaxon
 import com.google.gson.Gson
-import com.google.gson.JsonParser
 import net.minestom.server.extensions.Extension;
 import org.javacord.api.DiscordApi
 import org.javacord.api.DiscordApiBuilder
@@ -12,7 +10,9 @@ class ChatExtension : Extension() {
 
     override fun initialize() {
         logger.info("[ChatExtension] has been enabled!")
-        logger.info("[ChatExtension] Your discord bot can be invited with this link: ${discord?.createBotInvite()}")
+        if (config.enabled) {
+            logger.info("[ChatExtension] Your discord bot can be invited with this link: ${discord?.createBotInvite()}")
+        }
     }
 
     override fun terminate() {
