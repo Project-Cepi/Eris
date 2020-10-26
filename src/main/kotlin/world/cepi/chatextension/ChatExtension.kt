@@ -12,15 +12,11 @@ class ChatExtension : Extension() {
 
     override fun initialize() {
         logger.info("[ChatExtension] has been enabled!")
-		 logger.info("[ChatExtension] Your discord bot can be invited with this link: ${discord?.createBotInvite()}")
+        logger.info("[ChatExtension] Your discord bot can be invited with this link: ${discord?.createBotInvite()}")
     }
 
     override fun terminate() {
         logger.info("[ChatExtension] has been disabled!")
-    }
-
-    override fun terminate() {
-        logger.info("[ExampleExtension] has been disabled!")
     }
 
     companion object {
