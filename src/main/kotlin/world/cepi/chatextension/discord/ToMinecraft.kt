@@ -8,13 +8,14 @@ import org.javacord.api.listener.message.MessageCreateListener
 import world.cepi.chatextension.ChatExtension
 
 class DiscordToChat : MessageCreateListener {
+    var inviteLink: String? = null
+
     override fun onMessageCreate(event: MessageCreateEvent) {
         val config = ChatExtension.config
         if (event.channel.id != config.channel) return
         if (event.messageAuthor.isYourself) return
 
-        var inviteLink: String? = null
-        event.serverTextChannel.ifPresent {
+        if (inviteLink == null) event.serverTextChannel.ifPresent {
             val invite = InviteBuilder(event.serverTextChannel.get())
                     .setAuditLogReason("Automatic invite link created for a chat message")
                     .setNeverExpire()
