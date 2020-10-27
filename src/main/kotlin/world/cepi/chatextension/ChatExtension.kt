@@ -2,6 +2,7 @@ package world.cepi.chatextension
 
 import com.google.gson.Gson
 import net.minestom.server.MinecraftServer
+import net.minestom.server.chat.ChatColor
 import net.minestom.server.event.player.PlayerChatEvent
 import net.minestom.server.event.player.PlayerDisconnectEvent
 import net.minestom.server.extensions.Extension;
@@ -49,6 +50,8 @@ class ChatExtension : Extension() {
             }
 
         val discord: DiscordApi? = if (config.enabled) DiscordApiBuilder().setToken(config.token).login().join() else null
+
+        val discordPrefix = "${ChatColor.PURPLE}[DISCORD]"
 
     }
 }
