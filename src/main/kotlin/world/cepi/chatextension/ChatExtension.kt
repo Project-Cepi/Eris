@@ -1,9 +1,15 @@
 package world.cepi.chatextension
 
 import com.google.gson.Gson
+import net.minestom.server.MinecraftServer
+import net.minestom.server.event.player.PlayerChatEvent
+import net.minestom.server.event.player.PlayerDisconnectEvent
 import net.minestom.server.extensions.Extension;
 import org.javacord.api.DiscordApi
 import org.javacord.api.DiscordApiBuilder
+import world.cepi.chatextension.discord.chatToDiscord
+import world.cepi.chatextension.discord.onJoin
+import world.cepi.chatextension.discord.onLeave
 import java.io.File
 
 class ChatExtension : Extension() {
@@ -13,10 +19,21 @@ class ChatExtension : Extension() {
         if (config.enabled) {
             logger.info("[ChatExtension] Your discord bot can be invited with this link: ${discord?.createBotInvite()}")
         }
+        registerEvents()
     }
 
     override fun terminate() {
         logger.info("[ChatExtension] has been disabled!")
+    }
+
+    private fun registerEvents() {
+        val connectionManager = MinecraftServer.getConnectionManager()
+
+        connectionManager.addPlayerInitialization {player ->
+            player.addEventCallback(PlayerChatEvent::class.java) {event -> chatToDiscord(event)}
+            onJoin(player)
+            player.addEventCallback(PlayerDisconnectEvent::class.java) {event -> onLeave(event.player)}
+        }
     }
 
     companion object {
