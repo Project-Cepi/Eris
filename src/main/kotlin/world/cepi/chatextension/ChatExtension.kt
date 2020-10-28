@@ -68,10 +68,12 @@ class ChatExtension : Extension() {
 
         val discordChannel: ServerTextChannel? = getDiscordChannel(config.channel)
 
-        val inviteLink: Invite = InviteBuilder(discordChannel)
+        val inviteLink: String = InviteBuilder(discordChannel)
                 .setNeverExpire()
                 .setAuditLogReason("Automatically created invite link")
                 .create()
                 .join()
+                .url
+                .toString()
     }
 }
