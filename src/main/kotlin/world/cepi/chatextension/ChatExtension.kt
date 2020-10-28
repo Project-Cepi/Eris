@@ -12,9 +12,7 @@ import org.javacord.api.entity.channel.ChannelType
 import org.javacord.api.entity.channel.ServerTextChannel
 import org.javacord.api.entity.server.invite.Invite
 import org.javacord.api.entity.server.invite.InviteBuilder
-import world.cepi.chatextension.discord.chatToDiscord
-import world.cepi.chatextension.discord.onJoin
-import world.cepi.chatextension.discord.onLeave
+import world.cepi.chatextension.discord.*
 import java.io.File
 
 class ChatExtension : Extension() {
@@ -33,11 +31,15 @@ class ChatExtension : Extension() {
 
     private fun registerEvents() {
         val connectionManager = MinecraftServer.getConnectionManager()
-
         connectionManager.addPlayerInitialization {player ->
             player.addEventCallback(PlayerChatEvent::class.java) {event -> chatToDiscord(event)}
             onJoin(player)
             player.addEventCallback(PlayerDisconnectEvent::class.java) {event -> onLeave(event.player)}
+        }
+
+        if (discord != null) {
+            discord.addMessageCreateListener(DiscordToChat())
+            discord.addServerMemberJoinListener(OnJoin())
         }
     }
 
