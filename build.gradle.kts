@@ -2,6 +2,7 @@ plugins {
     // Apply the Kotlin JVM plugin to add support for Kotlin.
     id("org.jetbrains.kotlin.jvm") version "1.4.10"
     id("com.github.johnrengelman.shadow") version "6.1.0"
+    id("org.jetbrains.dokka") version "1.4.0-rc"
 
     // Apply the application plugin to add support for building a jar
     java
