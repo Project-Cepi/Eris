@@ -1,0 +1,7 @@
+$dokka.format:html
+$dokka.linkExtension:html
+
+world.cepi.chatextension
+world.cepi.chatextension.discord
+world.cepi.chatextension.events
+
