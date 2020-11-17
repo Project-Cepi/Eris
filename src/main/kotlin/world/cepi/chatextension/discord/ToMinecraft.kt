@@ -26,9 +26,10 @@ class DiscordToChat : MessageCreateListener {
 
 class OnJoin : ServerMemberJoinListener {
     override fun onServerMemberJoin(event: ServerMemberJoinEvent) {
+        val config = ChatExtension.config
         MinecraftServer.getConnectionManager().broadcastMessage(RichMessage
                 .of(ColoredText.of(ChatColor.BRIGHT_GREEN, "${ChatExtension.discordPrefix} ${event.user.name} has joined us on Discord!"))
-                .setClickEvent(ChatClickEvent.openUrl(ChatExtension.inviteLink))
+                .setClickEvent(ChatClickEvent.openUrl(config.inviteLink))
                 .setHoverEvent(ChatHoverEvent.showText(ColoredText.of(ChatColor.PURPLE, "Click to join us on Discord!")))
         )
     }

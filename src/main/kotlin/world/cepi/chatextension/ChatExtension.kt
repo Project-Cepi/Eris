@@ -73,13 +73,5 @@ class ChatExtension : Extension() {
         val discordPrefix = "${ChatColor.PURPLE}[DISCORD]"
 
         val discordChannel: ServerTextChannel? = getDiscordChannel(config.channel)
-
-        val inviteLink: String = InviteBuilder(discordChannel)
-                .setNeverExpire()
-                .setAuditLogReason("Automatically created invite link")
-                .create()
-                .join()
-                .url
-                .toString()
     }
 }
