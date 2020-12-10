@@ -1,10 +1,11 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.dokka.gradle.DokkaTask
+import java.net.URL
 
 plugins {
     // Apply the Kotlin JVM plugin to add support for Kotlin.
     kotlin("jvm") version "1.4.21"
     id("com.github.johnrengelman.shadow") version "6.1.0"
-    id("org.jetbrains.dokka") version "1.4.0-rc"
+    id("org.jetbrains.dokka") version "1.4.20"
 
     // Apply the application plugin to add support for building a jar
     java
@@ -81,6 +82,7 @@ publishing {
         }
 	}
 }
+
 tasks.jar {
     from(configurations.compileClasspath.get().map { if (it.isDirectory) it else zipTree(it) }) {
         exclude("META-INF/*.RSA", "META-INF/*.SF","META-INF/*.DSA")
