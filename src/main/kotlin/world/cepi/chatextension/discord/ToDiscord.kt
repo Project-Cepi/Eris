@@ -19,7 +19,7 @@ fun chatToDiscord(event: PlayerChatEvent) {
         return
     }
     val channel = channelOptional.get().asTextChannel().get()
-    channel.sendMessage("**<${event.sender.displayName ?: event.sender.username}>** ${event.message}")
+    channel.sendMessage("**<${event.player.displayName ?: event.player.username}>** ${event.message}")
 }
 
 private fun joinLeaveEmbed(player: Player, type: EmbedType): EmbedBuilder = EmbedBuilder()
