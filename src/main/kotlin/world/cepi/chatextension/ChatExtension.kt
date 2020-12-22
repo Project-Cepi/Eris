@@ -32,13 +32,18 @@ class ChatExtension : Extension() {
 
     private fun registerEvents() {
         val connectionManager = MinecraftServer.getConnectionManager()
-        connectionManager.addPlayerInitialization {player ->
+        connectionManager.addPlayerInitialization { player ->
+
+
+
             player.addEventCallback(PlayerChatEvent::class.java) {event ->
                 chatToDiscord(event)
                 styleFormattedChat(event)
             }
+
             onJoin(player)
-            player.addEventCallback(PlayerDisconnectEvent::class.java) {event -> onLeave(event.player)}
+
+            player.addEventCallback(PlayerDisconnectEvent::class.java) { event -> onLeave(event.player) }
         }
 
         if (discord != null) {
