@@ -53,6 +53,9 @@ dependencies {
 
     // Javacord
     implementation("org.javacord", "javacord", "3.1.1")
+
+    // implement KStom
+    implementation("com.github.Project-Cepi:KStom:main-SNAPSHOT")
 }
 
 tasks.withType<Test> {
