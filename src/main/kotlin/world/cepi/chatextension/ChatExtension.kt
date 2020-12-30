@@ -6,8 +6,10 @@ import net.minestom.server.chat.ChatColor
 import net.minestom.server.chat.ColoredText
 import net.minestom.server.chat.JsonMessage
 import net.minestom.server.chat.RichMessage
+import net.minestom.server.event.PlayerEvent
 import net.minestom.server.event.player.PlayerChatEvent
 import net.minestom.server.event.player.PlayerDisconnectEvent
+import net.minestom.server.event.player.PlayerLoginEvent
 import net.minestom.server.extensions.Extension;
 import org.javacord.api.DiscordApi
 import org.javacord.api.DiscordApiBuilder
@@ -17,6 +19,7 @@ import org.javacord.api.entity.server.invite.Invite
 import org.javacord.api.entity.server.invite.InviteBuilder
 import world.cepi.chatextension.discord.*
 import world.cepi.chatextension.events.styleFormattedChat
+import world.cepi.kstom.addEventCallback
 import world.cepi.kstom.asColored
 import world.cepi.kstom.asRich
 import java.io.File
@@ -39,18 +42,27 @@ class ChatExtension : Extension() {
         val connectionManager = MinecraftServer.getConnectionManager()
         connectionManager.addPlayerInitialization { player ->
 
-            MinecraftServer.getConnectionManager().broadcastMessage(
-                    "&a&lJOIN &r&8| &7${player.username}".asColored().asRich()
-            )
+            player.addEventCallback(PlayerLoginEvent::class) {
+                MinecraftServer.getConnectionManager().broadcastMessage(
+                        "§a§lJOIN §r§8| §7${player.username}".asColored().asRich()
+                )
+            }
 
-            player.addEventCallback(PlayerChatEvent::class.java) {event ->
+            player.addEventCallback(PlayerChatEvent::class) {event ->
                 chatToDiscord(event)
                 styleFormattedChat(event)
             }
 
             onJoin(player)
 
-            player.addEventCallback(PlayerDisconnectEvent::class.java) { event -> onLeave(event.player) }
+            player.addEventCallback(PlayerDisconnectEvent::class) { event ->
+                onLeave(event.player)
+
+                MinecraftServer.getConnectionManager().broadcastMessage(
+                        "§c§lLEAVE §r§8| §7${event.player.username}".asColored().asRich()
+                )
+
+            }
         }
 
         if (discord != null) {
