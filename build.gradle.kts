@@ -81,6 +81,7 @@ tasks {
     named<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar>("shadowJar") {
         archiveBaseName.set("eris")
         mergeServiceFiles()
+        minimize()
 
     }
 
