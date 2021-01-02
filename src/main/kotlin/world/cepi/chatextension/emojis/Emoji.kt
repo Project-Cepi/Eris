@@ -4,7 +4,6 @@ package world.cepi.chatextension.emojis
 data class Emoji(val name: String, val value: String) {
     companion object {
         val emojis = listOf(
-                Emoji("smile", ":)"),
                 Emoji("chicken", "\uEFF1"),
                 Emoji("fish", "\uEFF2")
         )
