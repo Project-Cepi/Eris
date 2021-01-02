@@ -28,34 +28,25 @@ repositories {
 
 dependencies {
     // Align versions of all Kotlin components
-    implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
+    compileOnly(platform("org.jetbrains.kotlin:kotlin-bom"))
 
     // Use the Kotlin JDK 8 standard library.
-    implementation(kotlin("stdlib"))
+    compileOnly(kotlin("stdlib"))
 
     // Use the Kotlin reflect library.
-    implementation(kotlin("reflect"))
+    compileOnly(kotlin("reflect"))
 
     // Use the JUpiter test library.
     testImplementation("org.junit.jupiter:junit-jupiter:5.6.0")
 
     // Compile Minestom into project
-    implementation("com.github.Minestom:Minestom:81592d8b56")
-
-    // Use the Netty library
-    implementation("io.netty:netty-transport-native-epoll:4.1.52.Final")
-
-    // KHTTP
-    implementation("khttp:khttp:1.0.0")
-
-    // Implement Klaxon
-    implementation("com.beust:klaxon:5.0.1")
+    compileOnly("com.github.Minestom:Minestom:4d2dd7d256")
 
     // Javacord
     implementation("org.javacord", "javacord", "3.1.1")
 
     // implement KStom
-    implementation("com.github.Project-Cepi:KStom:main-SNAPSHOT")
+    compileOnly("com.github.Project-Cepi:KStom:main-SNAPSHOT")
 }
 
 tasks.withType<Test> {
@@ -86,8 +77,15 @@ publishing {
 	}
 }
 
-tasks.jar {
-    from(configurations.compileClasspath.get().map { if (it.isDirectory) it else zipTree(it) }) {
-        exclude("META-INF/*.RSA", "META-INF/*.SF","META-INF/*.DSA")
+tasks {
+    named<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar>("shadowJar") {
+        archiveBaseName.set("eris")
+        mergeServiceFiles()
+
     }
+
+    test { useJUnitPlatform() }
+
+    build { dependsOn(shadowJar) }
+
 }
