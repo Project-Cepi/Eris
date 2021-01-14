@@ -19,6 +19,7 @@ import org.javacord.api.entity.server.invite.Invite
 import org.javacord.api.entity.server.invite.InviteBuilder
 import world.cepi.chatextension.discord.*
 import world.cepi.chatextension.events.styleFormattedChat
+import world.cepi.chatextension.tab.loadTab
 import world.cepi.kstom.addEventCallback
 import world.cepi.kstom.asColored
 import world.cepi.kstom.asRich
@@ -46,6 +47,7 @@ class ChatExtension : Extension() {
                 MinecraftServer.getConnectionManager().broadcastMessage(
                         "§a§lJOIN §r§8| §7${player.username}".asColored().asRich()
                 )
+                loadTab(player)
             }
 
             player.addEventCallback(PlayerChatEvent::class) {event ->
