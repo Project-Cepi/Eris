@@ -3,20 +3,15 @@ package world.cepi.chatextension
 import com.google.gson.Gson
 import net.minestom.server.MinecraftServer
 import net.minestom.server.chat.ChatColor
-import net.minestom.server.chat.ColoredText
-import net.minestom.server.chat.JsonMessage
-import net.minestom.server.chat.RichMessage
-import net.minestom.server.event.PlayerEvent
 import net.minestom.server.event.player.PlayerChatEvent
 import net.minestom.server.event.player.PlayerDisconnectEvent
 import net.minestom.server.event.player.PlayerLoginEvent
+import net.minestom.server.event.player.PlayerSpawnEvent
 import net.minestom.server.extensions.Extension;
 import org.javacord.api.DiscordApi
 import org.javacord.api.DiscordApiBuilder
 import org.javacord.api.entity.channel.ChannelType
 import org.javacord.api.entity.channel.ServerTextChannel
-import org.javacord.api.entity.server.invite.Invite
-import org.javacord.api.entity.server.invite.InviteBuilder
 import world.cepi.chatextension.discord.*
 import world.cepi.chatextension.events.styleFormattedChat
 import world.cepi.chatextension.tab.loadTab
@@ -28,40 +23,32 @@ import java.io.File
 class ChatExtension : Extension() {
 
     override fun initialize() {
-        logger.info("[ChatExtension] has been enabled!")
-        if (config.enabled) {
-            logger.info("[ChatExtension] Your discord bot can be invited with this link: ${discord?.createBotInvite()}")
-        }
-        registerEvents()
-    }
 
-    override fun terminate() {
-        logger.info("[ChatExtension] has been disabled!")
-    }
-
-    private fun registerEvents() {
         val connectionManager = MinecraftServer.getConnectionManager()
         connectionManager.addPlayerInitialization { player ->
 
             player.addEventCallback(PlayerLoginEvent::class) {
+                onJoin(player)
                 MinecraftServer.getConnectionManager().broadcastMessage(
                         "§a§lJOIN §r§8| §7${player.username}".asColored().asRich()
                 )
+            }
+
+            player.addEventCallback(PlayerSpawnEvent::class) {
                 loadTab(player)
             }
 
-            player.addEventCallback(PlayerChatEvent::class) {event ->
-                chatToDiscord(event)
-                styleFormattedChat(event)
+            player.addEventCallback(PlayerChatEvent::class) {
+                chatToDiscord(this)
+                styleFormattedChat(this)
             }
 
-            onJoin(player)
 
-            player.addEventCallback(PlayerDisconnectEvent::class) { event ->
-                onLeave(event.player)
+            player.addEventCallback(PlayerDisconnectEvent::class) {
+                onLeave(this.player)
 
                 MinecraftServer.getConnectionManager().broadcastMessage(
-                        "§c§lLEAVE §r§8| §7${event.player.username}".asColored().asRich()
+                        "§c§lLEAVE §r§8| §7${this.player.username}".asColored().asRich()
                 )
 
             }
@@ -71,6 +58,16 @@ class ChatExtension : Extension() {
             discord.addMessageCreateListener(DiscordToChat())
             discord.addServerMemberJoinListener(OnJoin())
         }
+
+        logger.info("[ChatExtension] has been enabled!")
+
+        if (config.enabled) {
+            logger.info("[ChatExtension] Your discord bot can be invited with this link: ${discord?.createBotInvite()}")
+        }
+    }
+
+    override fun terminate() {
+        logger.info("[ChatExtension] has been disabled!")
     }
 
     companion object {

@@ -1,5 +1,4 @@
-import org.jetbrains.dokka.gradle.DokkaTask
-import java.net.URL
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     // Apply the Kotlin JVM plugin to add support for Kotlin.
@@ -24,6 +23,7 @@ repositories {
     maven(url = "https://libraries.minecraft.net")
     maven(url = "https://jitpack.io")
     maven(url = "https://jcenter.bintray.com/")
+    maven(url = "https://oss.sonatype.org/content/repositories/snapshots/")
 }
 
 dependencies {
@@ -40,41 +40,21 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter:5.7.0")
 
     // Compile Minestom into project
-    compileOnly("com.github.Minestom:Minestom:4d2dd7d256")
+    compileOnly("com.github.Minestom:Minestom:ada1e49d3c")
 
     // Javacord
     implementation("org.javacord", "javacord", "3.1.1")
 
     // implement KStom
-    compileOnly("com.github.Project-Cepi:KStom:main-SNAPSHOT")
+    compileOnly("com.github.Project-Cepi:KStom:4fc7563d18")
+
+    // Add Kyori Minestom implementation
+    implementation("com.github.mworzala:adventure-platform-minestom:2e12f45b2e")
+    implementation("net.kyori:adventure-text-minimessage:4.0.0-SNAPSHOT")
 }
 
 tasks.withType<Test> {
     useJUnitPlatform()
-}
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
-}
-publishing {
-    publications {
-        create<MavenPublication>("default") {
-            from(components["java"])
-            // Include any other artifacts here, like javadocs
-        }
-    }
-
-    repositories {
-        maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/Project-Cepi/ChatExtension")
-            credentials {
-                username = System.getenv("GITHUB_ACTOR")
-                password = System.getenv("GITHUB_TOKEN")
-            }
-        }
-	}
 }
 
 tasks {
@@ -89,4 +69,18 @@ tasks {
 
     build { dependsOn(shadowJar) }
 
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+val compileKotlin: KotlinCompile by tasks
+compileKotlin.kotlinOptions {
+    jvmTarget = "11"
+}
+val compileTestKotlin: KotlinCompile by tasks
+compileTestKotlin.kotlinOptions {
+    jvmTarget = "11"
 }
