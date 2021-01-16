@@ -10,7 +10,7 @@ import world.cepi.chatextension.tab.TabObjects.header
 /** Keep these expensive objects in memory! */
 object TabObjects {
     val header = MiniMessage.get().parse("<gradient:green:#00b9ff>cepi.world</gradient>")
-    val footer = MiniMessage.get().parse("  <gradient:gray:white>Alpha Stage: Open Development</gradient>  ")
+    val footer = MiniMessage.get().parse("  <gradient:gray:white>Open Alpha Development</gradient>  ")
 }
 
 fun loadTab(player: Player) {
