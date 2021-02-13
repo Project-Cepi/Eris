@@ -40,13 +40,13 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter:5.7.1")
 
     // Compile Minestom into project
-    compileOnly("com.github.Minestom:Minestom:8334e100cf")
+    compileOnly("com.github.Minestom:Minestom:df2ee23a7c")
 
     // Javacord
     implementation("org.javacord", "javacord", "3.1.1")
 
     // implement KStom
-    compileOnly("com.github.Project-Cepi:KStom:6e996d24c4")
+    compileOnly("com.github.Project-Cepi:KStom:3b80924771")
 
     // Add Kyori Minestom implementation
     implementation("com.github.mworzala:adventure-platform-minestom:2e12f45b2e")
