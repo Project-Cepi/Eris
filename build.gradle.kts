@@ -24,6 +24,7 @@ repositories {
     maven(url = "https://jitpack.io")
     maven(url = "https://jcenter.bintray.com/")
     maven(url = "https://oss.sonatype.org/content/repositories/snapshots/")
+    maven(url = "https://repo.minebench.de/")
 }
 
 dependencies {
@@ -46,7 +47,10 @@ dependencies {
     implementation("org.javacord", "javacord", "3.1.1")
 
     // implement KStom
-    compileOnly("com.github.Project-Cepi:KStom:3b80924771")
+    compileOnly("com.github.Project-Cepi:KStom:120c4c5475")
+
+    // Add minedown
+    implementation("de.themoep:minedown-adventure:1.7.0-SNAPSHOT")
 
     // Add Kyori Minestom implementation
     implementation("com.github.mworzala:adventure-platform-minestom:2e12f45b2e")
