@@ -34,7 +34,6 @@ fun styleFormattedChat(event: PlayerChatEvent) {
         }
 
         val mineDown = MineDown(message)
-        mineDown.disable(MineDownParser.Option.LEGACY_COLORS)
         mineDown.disable(MineDownParser.Option.ADVANCED_FORMATTING)
 
         return@setChatFormat MinestomComponentSerializer.get().serialize(

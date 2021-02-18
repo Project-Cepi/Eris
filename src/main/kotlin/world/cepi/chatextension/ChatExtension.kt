@@ -25,6 +25,11 @@ class ChatExtension : Extension() {
     override fun initialize() {
 
         val connectionManager = MinecraftServer.getConnectionManager()
+
+        MinecraftServer.getCommandManager().register(DiscordLink())
+        MinecraftServer.getCommandManager().register(YoutubeLink())
+        MinecraftServer.getCommandManager().register(WebsiteLink())
+
         connectionManager.addPlayerInitialization { player ->
 
             player.addEventCallback(PlayerLoginEvent::class) {
