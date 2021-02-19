@@ -4,7 +4,9 @@ import de.themoep.minedown.adventure.MineDown
 import de.themoep.minedown.adventure.MineDownParser
 import net.kyori.adventure.platform.minestom.MinestomComponentSerializer
 import net.kyori.adventure.text.Component
+import net.kyori.adventure.text.TextReplacementConfig
 import net.kyori.adventure.text.format.NamedTextColor
+import net.kyori.adventure.text.format.TextColor
 import net.kyori.adventure.text.format.TextColor.color
 import net.kyori.adventure.text.minimessage.MiniMessage
 import net.minestom.server.MinecraftServer
@@ -22,24 +24,31 @@ import kotlin.reflect.jvm.internal.impl.descriptors.Named
 fun styleFormattedChat(event: PlayerChatEvent) {
     event.setChatFormat { chatEvent ->
 
-        var message = chatEvent.message
-
-        Emoji.emojis.forEach { message = message.replace(":${it.name}:", it.value) }
+        val mineDown = MineDown(chatEvent.message)
+        mineDown.disable(MineDownParser.Option.ADVANCED_FORMATTING)
+        var messageComponent = mineDown.toComponent()
 
         MinecraftServer.getConnectionManager().onlinePlayers.forEach {
-            if (message.contains(it.username)) {
-                message = message.replace(it.username, YELLOW + it.username + WHITE)
-                it.playSound(Sound.BLOCK_NOTE_BLOCK_PLING, SoundCategory.PLAYERS, 1f, 2f)
-            }
+            messageComponent = messageComponent.replaceText(
+                TextReplacementConfig.builder()
+                    .matchLiteral(it.username)
+                    .replacement { _ ->
+                        it.playSound(Sound.BLOCK_NOTE_BLOCK_PLING, SoundCategory.PLAYERS, 1f, 2f)
+                        Component.text(it.username, NamedTextColor.YELLOW)
+                            .append(Component.text().color(NamedTextColor.WHITE))
+                    }.build())
         }
 
-        val mineDown = MineDown(message)
-        mineDown.disable(MineDownParser.Option.ADVANCED_FORMATTING)
+        Emoji.emojis.forEach {
+            messageComponent = messageComponent.replaceText(TextReplacementConfig.builder().matchLiteral(":${it.name}:").replacement(
+                Component.text(it.value)
+            ).build())
+        }
 
         return@setChatFormat MinestomComponentSerializer.get().serialize(
             MiniMessage.get().parse(
                 "<dark_gray>[<gray>${chatEvent.player.level}<dark_gray>] <white>${chatEvent.player.username}<dark_gray> >> <gray>"
-            ).append(mineDown.toComponent())
+            ).append(messageComponent)
         )
     }
 }
