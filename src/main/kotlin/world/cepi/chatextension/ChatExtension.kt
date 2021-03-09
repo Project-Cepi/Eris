@@ -13,6 +13,7 @@ import org.javacord.api.DiscordApiBuilder
 import org.javacord.api.entity.channel.ChannelType
 import org.javacord.api.entity.channel.ServerTextChannel
 import world.cepi.chatextension.discord.*
+import world.cepi.chatextension.emojis.EmojiCommand
 import world.cepi.chatextension.events.styleFormattedChat
 import world.cepi.chatextension.tab.loadTab
 import world.cepi.kstom.addEventCallback
@@ -29,6 +30,7 @@ class ChatExtension : Extension() {
         MinecraftServer.getCommandManager().register(DiscordLink())
         MinecraftServer.getCommandManager().register(YoutubeLink())
         MinecraftServer.getCommandManager().register(WebsiteLink())
+        MinecraftServer.getCommandManager().register(EmojiCommand())
 
         connectionManager.addPlayerInitialization { player ->
 
