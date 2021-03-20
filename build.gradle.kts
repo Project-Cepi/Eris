@@ -41,19 +41,14 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter:5.7.1")
 
     // Compile Minestom into project
-    compileOnly("com.github.Minestom:Minestom:df2ee23a7c")
+    compileOnly("com.github.Project-Cepi:Minestom:c26756c487")
 
     // Javacord
     implementation("org.javacord", "javacord", "3.1.1")
 
     // implement KStom
-    compileOnly("com.github.Project-Cepi:KStom:120c4c5475")
+    compileOnly("com.github.Project-Cepi:KStom:cbcf67f09c")
 
-    // Add minedown
-    implementation("de.themoep:minedown-adventure:1.7.0-SNAPSHOT")
-
-    // Add Kyori Minestom implementation
-    implementation("com.github.mworzala:adventure-platform-minestom:2e12f45b2e")
     implementation("net.kyori:adventure-text-minimessage:4.0.0-SNAPSHOT")
 }
 

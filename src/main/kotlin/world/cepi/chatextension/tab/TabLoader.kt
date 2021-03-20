@@ -1,6 +1,5 @@
 package world.cepi.chatextension.tab
 
-import net.kyori.adventure.platform.minestom.MinestomComponentSerializer
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.minimessage.MiniMessage
 import net.minestom.server.entity.Player
@@ -15,10 +14,8 @@ object TabObjects {
 
 fun loadTab(player: Player) {
 
-    player.sendHeaderFooter(
-        Component.newline().append(header).append(Component.newline()).serialize(),
-        Component.newline().append(footer).append(Component.newline()).serialize()
+    player.sendPlayerListHeaderAndFooter(
+        Component.newline().append(header).append(Component.newline()),
+        Component.newline().append(footer).append(Component.newline())
     )
 }
-
-fun Component.serialize() = MinestomComponentSerializer.get().serialize(this)
