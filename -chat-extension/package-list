@@ -20,6 +20,7 @@ $dokka.location:world.cepi.chatextension.emojis/Emoji/value/#/PointingToDeclarat
 $dokka.location:world.cepi.chatextension.emojis/EmojiCommand///PointingToDeclaration/-chat-extension/world.cepi.chatextension.emojis/-emoji-command/index.html
 $dokka.location:world.cepi.chatextension.emojis/EmojiCommand/EmojiCommand/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension.emojis/-emoji-command/-emoji-command.html
 $dokka.location:world.cepi.chatextension.events////PointingToDeclaration/-chat-extension/world.cepi.chatextension.events/index.html
+$dokka.location:world.cepi.chatextension.events//miniMessageFormat/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension.events/mini-message-format.html
 $dokka.location:world.cepi.chatextension.events//styleFormattedChat/#net.minestom.server.event.player.PlayerChatEvent/PointingToDeclaration/-chat-extension/world.cepi.chatextension.events/style-formatted-chat.html
 $dokka.location:world.cepi.chatextension.tab////PointingToDeclaration/-chat-extension/world.cepi.chatextension.tab/index.html
 $dokka.location:world.cepi.chatextension.tab//loadTab/#net.minestom.server.entity.Player/PointingToDeclaration/-chat-extension/world.cepi.chatextension.tab/load-tab.html
