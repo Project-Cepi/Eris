@@ -12,14 +12,14 @@ const val discordLink = "https://discord.cepi.world"
 const val websiteLink = "https://cepi.world"
 const val youtubeLink = "https://youtube.cepi.world"
 
-inline fun generateInvite(sender: CommandSender, link: String, name: String, color: NamedTextColor) {
+fun generateInvite(sender: CommandSender, link: String, name: String, color: NamedTextColor) {
     sender.sendMessage(
         Component.text("$name:", color)
             .append(Component.space())
             .append(
-                Component.text("Click Here! ($link")
-                    .style(Style.style(NamedTextColor.GRAY, TextDecoration.ITALIC, TextDecoration.UNDERLINED))
+                Component.text("Click Here! ($link)", NamedTextColor.GRAY, TextDecoration.ITALIC, TextDecoration.UNDERLINED)
                     .clickEvent(ClickEvent.openUrl(link))
+                    .hoverEvent(Component.text("Click here!", NamedTextColor.GRAY))
             )
     )
 }
