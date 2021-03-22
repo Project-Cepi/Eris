@@ -1,8 +1,10 @@
 package world.cepi.chatextension
 
 import com.google.gson.Gson
+import net.kyori.adventure.text.Component
+import net.kyori.adventure.text.format.NamedTextColor
+import net.kyori.adventure.text.format.TextDecoration
 import net.minestom.server.MinecraftServer
-import net.minestom.server.chat.ChatColor
 import net.minestom.server.event.player.PlayerChatEvent
 import net.minestom.server.event.player.PlayerDisconnectEvent
 import net.minestom.server.event.player.PlayerLoginEvent
@@ -17,8 +19,6 @@ import world.cepi.chatextension.emojis.EmojiCommand
 import world.cepi.chatextension.events.styleFormattedChat
 import world.cepi.chatextension.tab.loadTab
 import world.cepi.kstom.addEventCallback
-import world.cepi.kstom.asColored
-import world.cepi.kstom.asRich
 import java.io.File
 
 class ChatExtension : Extension() {
@@ -36,8 +36,12 @@ class ChatExtension : Extension() {
 
             player.addEventCallback(PlayerLoginEvent::class) {
                 onJoin(player)
-                MinecraftServer.getConnectionManager().broadcastMessage(
-                        "§a§lJOIN §r§8| §7${player.username}".asColored().asRich()
+                MinecraftServer.getConnectionManager().sendMessage(
+                    Component.text("JOIN", NamedTextColor.GREEN, TextDecoration.BOLD)
+                        .append(Component.space())
+                        .append(Component.text("|", NamedTextColor.DARK_GRAY).decoration(TextDecoration.BOLD, false))
+                        .append(Component.space())
+                        .append(Component.text(player.username, NamedTextColor.GRAY).decoration(TextDecoration.BOLD, false))
                 )
             }
 
@@ -54,8 +58,12 @@ class ChatExtension : Extension() {
             player.addEventCallback(PlayerDisconnectEvent::class) {
                 onLeave(this.player)
 
-                MinecraftServer.getConnectionManager().broadcastMessage(
-                        "§c§lLEAVE §r§8| §7${this.player.username}".asColored().asRich()
+                MinecraftServer.getConnectionManager().sendMessage(
+                    Component.text("LEAVE", NamedTextColor.RED, TextDecoration.BOLD)
+                        .append(Component.space())
+                        .append(Component.text("|", NamedTextColor.DARK_GRAY).decoration(TextDecoration.BOLD, false))
+                        .append(Component.space())
+                        .append(Component.text(player.username, NamedTextColor.GRAY).decoration(TextDecoration.BOLD, false))
                 )
 
             }
@@ -100,7 +108,7 @@ class ChatExtension : Extension() {
 
         val discord: DiscordApi? = if (config.enabled) DiscordApiBuilder().setToken(config.token).login().join() else null
 
-        val discordPrefix = "${ChatColor.PURPLE}[DISCORD]"
+        val discordPrefix = Component.text("[DISCORD]", NamedTextColor.DARK_PURPLE)
 
         val discordChannel: ServerTextChannel? = getDiscordChannel(config.channel)
     }
