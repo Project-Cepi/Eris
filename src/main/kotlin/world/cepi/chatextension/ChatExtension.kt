@@ -27,10 +27,10 @@ class ChatExtension : Extension() {
 
         val connectionManager = MinecraftServer.getConnectionManager()
 
-        MinecraftServer.getCommandManager().register(DiscordLink())
-        MinecraftServer.getCommandManager().register(YoutubeLink())
-        MinecraftServer.getCommandManager().register(WebsiteLink())
-        MinecraftServer.getCommandManager().register(EmojiCommand())
+        MinecraftServer.getCommandManager().register(DiscordLink)
+        MinecraftServer.getCommandManager().register(YoutubeLink)
+        MinecraftServer.getCommandManager().register(WebsiteLink)
+        MinecraftServer.getCommandManager().register(EmojiCommand)
 
         connectionManager.addPlayerInitialization { player ->
 

@@ -24,17 +24,17 @@ fun generateInvite(sender: CommandSender, link: String, name: String, color: Nam
     )
 }
 
-class DiscordLink : SimpleKommand("discord", process = { sender, _, _ ->
+object DiscordLink : SimpleKommand("discord", process = { sender, _, _ ->
     generateInvite(sender, discordLink, "Discord", NamedTextColor.BLUE)
     true
 })
 
-class WebsiteLink : SimpleKommand("website", process = { sender, _, _ ->
+object WebsiteLink : SimpleKommand("website", process = { sender, _, _ ->
     generateInvite(sender, websiteLink, "Website", NamedTextColor.GREEN)
     true
 })
 
-class YoutubeLink : SimpleKommand("youtube", process = { sender, _, _ ->
+object YoutubeLink : SimpleKommand("youtube", process = { sender, _, _ ->
     generateInvite(sender, youtubeLink, "Youtube", NamedTextColor.RED)
     true
 })

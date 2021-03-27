@@ -1,15 +1,15 @@
 package world.cepi.chatextension.tab
 
 import net.kyori.adventure.text.Component
-import net.kyori.adventure.text.minimessage.MiniMessage
 import net.minestom.server.entity.Player
 import world.cepi.chatextension.tab.TabObjects.footer
 import world.cepi.chatextension.tab.TabObjects.header
+import world.cepi.kstom.adventure.asMini
 
 /** Keep these expensive objects in memory! */
 object TabObjects {
-    val header = MiniMessage.get().parse("<gradient:green:#00b9ff>cepi.world</gradient>")
-    val footer = MiniMessage.get().parse("  <gradient:gray:white>Open Alpha Development</gradient>  ")
+    val header = "<gradient:green:#00b9ff>cepi.world</gradient>".asMini()
+    val footer = "  <gradient:gray:white>Open Alpha Development</gradient>  ".asMini()
 }
 
 fun loadTab(player: Player) {
