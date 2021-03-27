@@ -31,7 +31,7 @@ fun styleFormattedChat(event: PlayerChatEvent) {
                     .replacement { _ ->
                         it.playSound(Sound.sound(SoundEvent.BLOCK_NOTE_BLOCK_PLING, Sound.Source.PLAYER, 1f, 2f))
                         Component.text(it.username, NamedTextColor.YELLOW)
-                            .append(Component.text().color(NamedTextColor.WHITE))
+                            .append(Component.empty().color(NamedTextColor.WHITE))
                     }.build())
         }
 
