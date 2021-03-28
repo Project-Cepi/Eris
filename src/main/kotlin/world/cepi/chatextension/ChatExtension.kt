@@ -5,6 +5,7 @@ import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
 import net.kyori.adventure.text.format.TextDecoration
 import net.minestom.server.MinecraftServer
+import net.minestom.server.adventure.audience.Audiences
 import net.minestom.server.event.player.PlayerChatEvent
 import net.minestom.server.event.player.PlayerDisconnectEvent
 import net.minestom.server.event.player.PlayerLoginEvent
@@ -34,16 +35,15 @@ class ChatExtension : Extension() {
 
         connectionManager.addPlayerInitialization { player ->
 
-            player.addEventCallback(PlayerLoginEvent::class) {
-                onJoin(player)
-                MinecraftServer.getConnectionManager().sendMessage(
-                    Component.text("JOIN", NamedTextColor.GREEN, TextDecoration.BOLD)
-                        .append(Component.space())
-                        .append(Component.text("|", NamedTextColor.DARK_GRAY).decoration(TextDecoration.BOLD, false))
-                        .append(Component.space())
-                        .append(Component.text(player.username, NamedTextColor.GRAY).decoration(TextDecoration.BOLD, false))
-                )
-            }
+            Audiences.players().sendMessage(
+                Component.text("JOIN", NamedTextColor.GREEN, TextDecoration.BOLD)
+                    .append(Component.space())
+                    .append(Component.text("|", NamedTextColor.DARK_GRAY).decoration(TextDecoration.BOLD, false))
+                    .append(Component.space())
+                    .append(Component.text(player.username, NamedTextColor.GRAY).decoration(TextDecoration.BOLD, false))
+            )
+
+            onJoin(player)
 
             player.addEventCallback(PlayerSpawnEvent::class) {
                 loadTab(player)
@@ -54,24 +54,21 @@ class ChatExtension : Extension() {
                 styleFormattedChat(this)
             }
 
-
             player.addEventCallback(PlayerDisconnectEvent::class) {
-                onLeave(this.player)
-
-                MinecraftServer.getConnectionManager().sendMessage(
+                Audiences.players().sendMessage(
                     Component.text("LEAVE", NamedTextColor.RED, TextDecoration.BOLD)
                         .append(Component.space())
                         .append(Component.text("|", NamedTextColor.DARK_GRAY).decoration(TextDecoration.BOLD, false))
                         .append(Component.space())
                         .append(Component.text(player.username, NamedTextColor.GRAY).decoration(TextDecoration.BOLD, false))
                 )
-
+                onLeave(this.player)
             }
         }
 
         if (discord != null) {
-            discord.addMessageCreateListener(DiscordToChat())
-            discord.addServerMemberJoinListener(OnJoin())
+            discord.addMessageCreateListener(DiscordToChat)
+            discord.addServerMemberJoinListener(OnJoin)
         }
 
         logger.info("[ChatExtension] has been enabled!")

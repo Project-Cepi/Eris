@@ -41,7 +41,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter:5.7.1")
 
     // Compile Minestom into project
-    compileOnly("com.github.Project-Cepi:Minestom:13b1d1e7a5")
+    compileOnly("com.github.Project-Cepi:Minestom:27cfe9c92b")
 
     // Javacord
     implementation("org.javacord", "javacord", "3.1.1")

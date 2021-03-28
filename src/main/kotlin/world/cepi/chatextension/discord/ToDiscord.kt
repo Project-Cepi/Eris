@@ -14,10 +14,12 @@ fun chatToDiscord(event: PlayerChatEvent) {
     val config = ChatExtension.config
     val discord = ChatExtension.discord ?: return
     val channelOptional = discord.getChannelById(config.channel)
+
     if (channelOptional.isPresent || channelOptional.get().type != ChannelType.SERVER_TEXT_CHANNEL) {
         MinecraftServer.LOGGER.info("ERROR! Channel ${config.channel} is not a valid channel!")
         return
     }
+
     val channel = channelOptional.get().asTextChannel().get()
     channel.sendMessage("**<${event.player.displayName ?: event.player.username}>** ${event.message}")
 }
@@ -32,10 +34,12 @@ fun onJoin(player: Player) {
     if (ChatExtension.discord == null) return
     val embed = joinLeaveEmbed(player, EmbedType.JOIN)
     val channelOptional = ChatExtension.discord.getChannelById(ChatExtension.config.channel)
+
     if (!channelOptional.isPresent || channelOptional.get().type != ChannelType.SERVER_TEXT_CHANNEL) {
         MinecraftServer.LOGGER.info("Error! Configured channel ${ChatExtension.config.channel} is invalid!")
         return
     }
+
     val channel = channelOptional.get()
 
     channel.asServerTextChannel().get().sendMessage(embed)
@@ -43,12 +47,15 @@ fun onJoin(player: Player) {
 
 fun onLeave(player: Player) {
     if (ChatExtension.discord == null) return
+
     val embed = joinLeaveEmbed(player, EmbedType.LEAVE)
     val channelOptional = ChatExtension.discord.getChannelById(ChatExtension.config.channel)
+
     if (!channelOptional.isPresent || channelOptional.get().type != ChannelType.SERVER_TEXT_CHANNEL) {
         MinecraftServer.LOGGER.info("Error! Configured channel ${ChatExtension.config.channel} is invalid!")
         return
     }
+
     val channel = channelOptional.get()
 
     channel.asServerTextChannel().get().sendMessage(embed)
