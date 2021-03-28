@@ -5,10 +5,8 @@ $dokka.location:world.cepi.chatextension.discord//chatToDiscord/#net.minestom.se
 $dokka.location:world.cepi.chatextension.discord//onJoin/#net.minestom.server.entity.Player/PointingToDeclaration/-chat-extension/world.cepi.chatextension.discord/on-join.html
 $dokka.location:world.cepi.chatextension.discord//onLeave/#net.minestom.server.entity.Player/PointingToDeclaration/-chat-extension/world.cepi.chatextension.discord/on-leave.html
 $dokka.location:world.cepi.chatextension.discord/DiscordToChat///PointingToDeclaration/-chat-extension/world.cepi.chatextension.discord/-discord-to-chat/index.html
-$dokka.location:world.cepi.chatextension.discord/DiscordToChat/DiscordToChat/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension.discord/-discord-to-chat/-discord-to-chat.html
 $dokka.location:world.cepi.chatextension.discord/DiscordToChat/onMessageCreate/#org.javacord.api.event.message.MessageCreateEvent/PointingToDeclaration/-chat-extension/world.cepi.chatextension.discord/-discord-to-chat/on-message-create.html
 $dokka.location:world.cepi.chatextension.discord/OnJoin///PointingToDeclaration/-chat-extension/world.cepi.chatextension.discord/-on-join/index.html
-$dokka.location:world.cepi.chatextension.discord/OnJoin/OnJoin/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension.discord/-on-join/-on-join.html
 $dokka.location:world.cepi.chatextension.discord/OnJoin/onServerMemberJoin/#org.javacord.api.event.server.member.ServerMemberJoinEvent/PointingToDeclaration/-chat-extension/world.cepi.chatextension.discord/-on-join/on-server-member-join.html
 $dokka.location:world.cepi.chatextension.emojis////PointingToDeclaration/-chat-extension/world.cepi.chatextension.emojis/index.html
 $dokka.location:world.cepi.chatextension.emojis/Emoji.Companion///PointingToDeclaration/-chat-extension/world.cepi.chatextension.emojis/-emoji/-companion/index.html
