@@ -18,7 +18,7 @@ import org.javacord.api.entity.channel.ServerTextChannel
 import world.cepi.chatextension.discord.*
 import world.cepi.chatextension.emojis.EmojiCommand
 import world.cepi.chatextension.events.styleFormattedChat
-import world.cepi.chatextension.tab.loadTab
+import world.cepi.chatextension.tab.TabHandler
 import world.cepi.kstom.addEventCallback
 import java.io.File
 
@@ -35,7 +35,7 @@ class ChatExtension : Extension() {
 
         connectionManager.addPlayerInitialization { player ->
 
-            Audiences.players().sendMessage(
+            Audiences.all().sendMessage(
                 Component.text("JOIN", NamedTextColor.GREEN, TextDecoration.BOLD)
                     .append(Component.space())
                     .append(Component.text("|", NamedTextColor.DARK_GRAY).decoration(TextDecoration.BOLD, false))
@@ -45,17 +45,17 @@ class ChatExtension : Extension() {
 
             onJoin(player)
 
-            player.addEventCallback(PlayerSpawnEvent::class) {
-                loadTab(player)
+            player.addEventCallback<PlayerSpawnEvent> {
+                TabHandler.loadTab(player)
             }
 
-            player.addEventCallback(PlayerChatEvent::class) {
+            player.addEventCallback<PlayerChatEvent> {
                 chatToDiscord(this)
                 styleFormattedChat(this)
             }
 
-            player.addEventCallback(PlayerDisconnectEvent::class) {
-                Audiences.players().sendMessage(
+            player.addEventCallback<PlayerDisconnectEvent> {
+                Audiences.all().sendMessage(
                     Component.text("LEAVE", NamedTextColor.RED, TextDecoration.BOLD)
                         .append(Component.space())
                         .append(Component.text("|", NamedTextColor.DARK_GRAY).decoration(TextDecoration.BOLD, false))
