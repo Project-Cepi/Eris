@@ -20,10 +20,10 @@ $dokka.location:world.cepi.chatextension.events////PointingToDeclaration/-chat-
 $dokka.location:world.cepi.chatextension.events//miniMessageFormat/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension.events/mini-message-format.html
 $dokka.location:world.cepi.chatextension.events//styleFormattedChat/#net.minestom.server.event.player.PlayerChatEvent/PointingToDeclaration/-chat-extension/world.cepi.chatextension.events/style-formatted-chat.html
 $dokka.location:world.cepi.chatextension.tab////PointingToDeclaration/-chat-extension/world.cepi.chatextension.tab/index.html
-$dokka.location:world.cepi.chatextension.tab//loadTab/#net.minestom.server.entity.Player/PointingToDeclaration/-chat-extension/world.cepi.chatextension.tab/load-tab.html
-$dokka.location:world.cepi.chatextension.tab/TabObjects///PointingToDeclaration/-chat-extension/world.cepi.chatextension.tab/-tab-objects/index.html
-$dokka.location:world.cepi.chatextension.tab/TabObjects/footer/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension.tab/-tab-objects/footer.html
-$dokka.location:world.cepi.chatextension.tab/TabObjects/header/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension.tab/-tab-objects/header.html
+$dokka.location:world.cepi.chatextension.tab/TabHandler///PointingToDeclaration/-chat-extension/world.cepi.chatextension.tab/-tab-handler/index.html
+$dokka.location:world.cepi.chatextension.tab/TabHandler/footer/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension.tab/-tab-handler/footer.html
+$dokka.location:world.cepi.chatextension.tab/TabHandler/header/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension.tab/-tab-handler/header.html
+$dokka.location:world.cepi.chatextension.tab/TabHandler/loadTab/#net.minestom.server.entity.Player/PointingToDeclaration/-chat-extension/world.cepi.chatextension.tab/-tab-handler/load-tab.html
 $dokka.location:world.cepi.chatextension////PointingToDeclaration/-chat-extension/world.cepi.chatextension/index.html
 $dokka.location:world.cepi.chatextension//discordLink/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension/discord-link.html
 $dokka.location:world.cepi.chatextension//generateInvite/#net.minestom.server.command.CommandSender#kotlin.String#kotlin.String#net.kyori.adventure.text.format.NamedTextColor/PointingToDeclaration/-chat-extension/world.cepi.chatextension/generate-invite.html
