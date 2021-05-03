@@ -4,7 +4,6 @@ import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.event.ClickEvent
 import net.kyori.adventure.text.event.HoverEvent
 import net.kyori.adventure.text.format.NamedTextColor
-import net.minestom.server.MinecraftServer
 import net.minestom.server.adventure.audience.Audiences
 import org.javacord.api.event.message.MessageCreateEvent
 import org.javacord.api.event.server.member.ServerMemberJoinEvent
