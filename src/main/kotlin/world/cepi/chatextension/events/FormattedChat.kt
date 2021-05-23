@@ -12,6 +12,7 @@ import net.minestom.server.entity.Player
 import net.minestom.server.event.player.PlayerChatEvent
 import net.minestom.server.sound.SoundEvent
 import world.cepi.chatextension.emojis.Emoji
+import world.cepi.kstom.Manager
 
 
 val miniMessageFormat = MiniMessage.builder()
@@ -27,7 +28,7 @@ fun styleFormattedChat(event: PlayerChatEvent) {
         val messageComponent = miniMessageFormat.parse(chatEvent.message)
             .let {
                 // Fold the players, replacing the initial value's text one by one
-                return@let MinecraftServer.getConnectionManager().onlinePlayers.fold(it) { acc, player ->
+                return@let Manager.connection.onlinePlayers.fold(it) { acc, player ->
                     return@fold acc.replaceText(
                         TextReplacementConfig.builder()
                             .matchLiteral(player.username)
