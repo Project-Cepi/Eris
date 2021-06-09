@@ -2,8 +2,6 @@ package world.cepi.chatextension.tab
 
 import net.kyori.adventure.text.Component
 import net.minestom.server.entity.Player
-import world.cepi.chatextension.tab.TabHandler.footer
-import world.cepi.chatextension.tab.TabHandler.header
 import world.cepi.kstom.adventure.asMini
 
 /** Handle tab formats */

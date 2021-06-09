@@ -15,11 +15,14 @@ import org.javacord.api.DiscordApi
 import org.javacord.api.DiscordApiBuilder
 import org.javacord.api.entity.channel.ChannelType
 import org.javacord.api.entity.channel.ServerTextChannel
+import world.cepi.chatextension.debug.ErisCommand
 import world.cepi.chatextension.discord.*
 import world.cepi.chatextension.emojis.EmojiCommand
 import world.cepi.chatextension.events.styleFormattedChat
 import world.cepi.chatextension.tab.TabHandler
 import world.cepi.kstom.addEventCallback
+import world.cepi.kstom.command.register
+import world.cepi.kstom.command.unregister
 import java.io.File
 
 class ChatExtension : Extension() {
@@ -28,10 +31,11 @@ class ChatExtension : Extension() {
 
         val connectionManager = MinecraftServer.getConnectionManager()
 
-        MinecraftServer.getCommandManager().register(DiscordLink)
-        MinecraftServer.getCommandManager().register(YoutubeLink)
-        MinecraftServer.getCommandManager().register(WebsiteLink)
-        MinecraftServer.getCommandManager().register(EmojiCommand)
+        DiscordLink.register()
+        YoutubeLink.register()
+        WebsiteLink.register()
+        EmojiCommand.register()
+        ErisCommand.register()
 
         connectionManager.addPlayerInitialization { player ->
 
@@ -79,6 +83,13 @@ class ChatExtension : Extension() {
     }
 
     override fun terminate() {
+
+        DiscordLink.unregister()
+        YoutubeLink.unregister()
+        WebsiteLink.unregister()
+        EmojiCommand.unregister()
+        ErisCommand.unregister()
+
         logger.info("[ChatExtension] has been disabled!")
     }
 
