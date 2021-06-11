@@ -74,6 +74,8 @@ class ChatExtension : Extension() {
             onLeave(this.player)
         }
 
+        eventNode.addChild(playerNode)
+
         if (discord != null) {
             discord.addMessageCreateListener(DiscordToChat)
             discord.addServerMemberJoinListener(OnJoin)
