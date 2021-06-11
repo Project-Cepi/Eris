@@ -6,6 +6,7 @@ import net.minestom.server.event.player.PlayerChatEvent
 import org.javacord.api.entity.channel.Channel
 import org.javacord.api.entity.channel.ChannelType
 import org.javacord.api.entity.channel.TextChannel
+import org.javacord.api.entity.message.MessageAuthor
 import org.javacord.api.entity.message.embed.Embed
 import org.javacord.api.entity.message.embed.EmbedBuilder
 import world.cepi.chatextension.ChatExtension
@@ -31,9 +32,11 @@ fun chatToDiscord(event: PlayerChatEvent) {
 
 private fun joinLeaveEmbed(player: Player, type: EmbedType): EmbedBuilder = EmbedBuilder()
             .setColor(if (type == EmbedType.JOIN) Color.green else Color.RED)
-            .setTitle("${player.displayName ?: player.username} has joined the game!")
-            .setColor(Color.GREEN)
-            .setThumbnail("https://minotar.net/helm/${player.uuid.toString().replace("-", "")}/128.png")
+            .setAuthor(
+                "${player.username} has joined the server",
+                "",
+                "https://minotar.net/helm/${player.uuid.toString().replace("-", "")}/128.png"
+            )
 
 fun onJoin(player: Player) {
     if (ChatExtension.discord == null) return
