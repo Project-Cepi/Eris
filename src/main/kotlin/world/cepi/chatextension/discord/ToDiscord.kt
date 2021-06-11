@@ -33,7 +33,7 @@ private fun joinLeaveEmbed(player: Player, type: EmbedType): EmbedBuilder = Embe
             .setColor(if (type == EmbedType.JOIN) Color.green else Color.RED)
             .setTitle("${player.displayName ?: player.username} has joined the game!")
             .setColor(Color.GREEN)
-            .setThumbnail("https://minotar.net/avatar/helm/${player.uuid.toString().replace("-", "")}/128.png")
+            .setThumbnail("https://minotar.net/helm/${player.uuid.toString().replace("-", "")}/128.png")
 
 fun onJoin(player: Player) {
     if (ChatExtension.discord == null) return
