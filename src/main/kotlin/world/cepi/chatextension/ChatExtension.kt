@@ -6,6 +6,8 @@ import net.kyori.adventure.text.format.NamedTextColor
 import net.kyori.adventure.text.format.TextDecoration
 import net.minestom.server.MinecraftServer
 import net.minestom.server.adventure.audience.Audiences
+import net.minestom.server.event.EventFilter
+import net.minestom.server.event.EventNode
 import net.minestom.server.event.player.PlayerChatEvent
 import net.minestom.server.event.player.PlayerDisconnectEvent
 import net.minestom.server.event.player.PlayerLoginEvent
@@ -20,9 +22,9 @@ import world.cepi.chatextension.discord.*
 import world.cepi.chatextension.emojis.EmojiCommand
 import world.cepi.chatextension.events.styleFormattedChat
 import world.cepi.chatextension.tab.TabHandler
-import world.cepi.kstom.addEventCallback
 import world.cepi.kstom.command.register
 import world.cepi.kstom.command.unregister
+import world.cepi.kstom.event.listenOnly
 import java.io.File
 
 class ChatExtension : Extension() {
@@ -37,6 +39,8 @@ class ChatExtension : Extension() {
         EmojiCommand.register()
         ErisCommand.register()
 
+        val playerNode = EventNode.type("eris-player", EventFilter.PLAYER)
+
         connectionManager.addPlayerInitialization { player ->
 
             Audiences.all().sendMessage(
@@ -48,26 +52,26 @@ class ChatExtension : Extension() {
             )
 
             onJoin(player)
+        }
 
-            player.addEventCallback<PlayerSpawnEvent> {
-                TabHandler.loadTab(player)
-            }
+        playerNode.listenOnly<PlayerSpawnEvent> {
+            TabHandler.loadTab(player)
+        }
 
-            player.addEventCallback<PlayerChatEvent> {
-                chatToDiscord(this)
-                styleFormattedChat(this)
-            }
+        playerNode.listenOnly<PlayerChatEvent> {
+            chatToDiscord(this)
+            styleFormattedChat(this)
+        }
 
-            player.addEventCallback<PlayerDisconnectEvent> {
-                Audiences.all().sendMessage(
-                    Component.text("LEAVE", NamedTextColor.RED, TextDecoration.BOLD)
-                        .append(Component.space())
-                        .append(Component.text("|", NamedTextColor.DARK_GRAY).decoration(TextDecoration.BOLD, false))
-                        .append(Component.space())
-                        .append(Component.text(player.username, NamedTextColor.GRAY).decoration(TextDecoration.BOLD, false))
-                )
-                onLeave(this.player)
-            }
+        playerNode.listenOnly<PlayerDisconnectEvent> {
+            Audiences.all().sendMessage(
+                Component.text("LEAVE", NamedTextColor.RED, TextDecoration.BOLD)
+                    .append(Component.space())
+                    .append(Component.text("|", NamedTextColor.DARK_GRAY).decoration(TextDecoration.BOLD, false))
+                    .append(Component.space())
+                    .append(Component.text(player.username, NamedTextColor.GRAY).decoration(TextDecoration.BOLD, false))
+            )
+            onLeave(this.player)
         }
 
         if (discord != null) {

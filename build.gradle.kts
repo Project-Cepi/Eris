@@ -14,18 +14,15 @@ plugins {
 }
 
 repositories {
-    // Use jcenter for resolving dependencies.
-    mavenCentral()
     // Use mavenCentral
-    maven(url = "https://repo1.maven.org/maven2/")
-    maven(url = "https://repo.spongepowered.org/maven")
-    maven(url = "https://libraries.minecraft.net")
+    mavenCentral()
+
     maven(url = "https://jitpack.io")
-    maven(url = "https://jcenter.bintray.com/")
-    maven(url = "https://oss.sonatype.org/content/repositories/snapshots/")
-    maven(url = "https://repo.minebench.de/")
+    maven(url = "https://repo.spongepowered.org/maven")
+    maven(url = "https://repo.minestom.com/repository/maven-public/")
     maven(url = "https://repo.velocitypowered.com/snapshots/")
 }
+
 
 dependencies {
     // Align versions of all Kotlin components
@@ -41,13 +38,13 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter:5.7.2")
 
     // Compile Minestom into project
-    compileOnly("com.github.Project-Cepi:Minestom:d871cb2c9c")
+    compileOnly("com.github.Minestom:Minestom:78cc392007")
 
     // Javacord
     implementation("org.javacord", "javacord", "3.1.1")
 
     // implement KStom
-    compileOnly("com.github.Project-Cepi:KStom:850bc149d8")
+    compileOnly("com.github.Project-Cepi:KStom:38216ae174")
 
     implementation("net.kyori:adventure-text-minimessage:4.1.0-SNAPSHOT")
 }
