@@ -4,6 +4,7 @@ $dokka.location:world.cepi.chatextension.debug////PointingToDeclaration/-chat-e
 $dokka.location:world.cepi.chatextension.debug/ErisCommand///PointingToDeclaration/-chat-extension/world.cepi.chatextension.debug/-eris-command/index.html
 $dokka.location:world.cepi.chatextension.discord////PointingToDeclaration/-chat-extension/world.cepi.chatextension.discord/index.html
 $dokka.location:world.cepi.chatextension.discord//chatToDiscord/#net.minestom.server.event.player.PlayerChatEvent/PointingToDeclaration/-chat-extension/world.cepi.chatextension.discord/chat-to-discord.html
+$dokka.location:world.cepi.chatextension.discord//grabChannel/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension.discord/grab-channel.html
 $dokka.location:world.cepi.chatextension.discord//onJoin/#net.minestom.server.entity.Player/PointingToDeclaration/-chat-extension/world.cepi.chatextension.discord/on-join.html
 $dokka.location:world.cepi.chatextension.discord//onLeave/#net.minestom.server.entity.Player/PointingToDeclaration/-chat-extension/world.cepi.chatextension.discord/on-leave.html
 $dokka.location:world.cepi.chatextension.discord/DiscordToChat///PointingToDeclaration/-chat-extension/world.cepi.chatextension.discord/-discord-to-chat/index.html
@@ -34,17 +35,14 @@ $dokka.location:world.cepi.chatextension//youtubeLink/#/PointingToDeclaration/-
 $dokka.location:world.cepi.chatextension/ChatExtension.Companion///PointingToDeclaration/-chat-extension/world.cepi.chatextension/-chat-extension/-companion/index.html
 $dokka.location:world.cepi.chatextension/ChatExtension.Companion/config/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension/-chat-extension/-companion/config.html
 $dokka.location:world.cepi.chatextension/ChatExtension.Companion/discord/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension/-chat-extension/-companion/discord.html
-$dokka.location:world.cepi.chatextension/ChatExtension.Companion/discordChannel/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension/-chat-extension/-companion/discord-channel.html
 $dokka.location:world.cepi.chatextension/ChatExtension.Companion/discordPrefix/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension/-chat-extension/-companion/discord-prefix.html
 $dokka.location:world.cepi.chatextension/ChatExtension///PointingToDeclaration/-chat-extension/world.cepi.chatextension/-chat-extension/index.html
 $dokka.location:world.cepi.chatextension/ChatExtension/ChatExtension/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension/-chat-extension/-chat-extension.html
 $dokka.location:world.cepi.chatextension/ChatExtension/initialize/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension/-chat-extension/initialize.html
 $dokka.location:world.cepi.chatextension/ChatExtension/terminate/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension/-chat-extension/terminate.html
 $dokka.location:world.cepi.chatextension/DiscordConfig///PointingToDeclaration/-chat-extension/world.cepi.chatextension/-discord-config/index.html
-$dokka.location:world.cepi.chatextension/DiscordConfig/DiscordConfig/#kotlin.Boolean#kotlin.String#kotlin.Long#kotlin.Boolean#kotlin.Long#kotlin.String/PointingToDeclaration/-chat-extension/world.cepi.chatextension/-discord-config/-discord-config.html
+$dokka.location:world.cepi.chatextension/DiscordConfig/DiscordConfig/#kotlin.Boolean#kotlin.String#kotlin.Long#kotlin.String/PointingToDeclaration/-chat-extension/world.cepi.chatextension/-discord-config/-discord-config.html
 $dokka.location:world.cepi.chatextension/DiscordConfig/channel/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension/-discord-config/channel.html
-$dokka.location:world.cepi.chatextension/DiscordConfig/console/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension/-discord-config/console.html
-$dokka.location:world.cepi.chatextension/DiscordConfig/consoleChannel/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension/-discord-config/console-channel.html
 $dokka.location:world.cepi.chatextension/DiscordConfig/enabled/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension/-discord-config/enabled.html
 $dokka.location:world.cepi.chatextension/DiscordConfig/inviteLink/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension/-discord-config/invite-link.html
 $dokka.location:world.cepi.chatextension/DiscordConfig/token/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension/-discord-config/token.html
