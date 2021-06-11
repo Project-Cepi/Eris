@@ -100,30 +100,23 @@ class ChatExtension : Extension() {
     }
 
     companion object {
-        val config: DiscordConfig
-            get() {
-                val configFile = File("./discord-config.json")
-                val gson = Gson()
+        val config: DiscordConfig by lazy {
+            val configFile = File("./discord-config.json")
+            val gson = Gson()
 
-                return if (!configFile.exists()) {
-                    configFile.writeText(gson.toJson(DiscordConfig()))
-                    DiscordConfig()
-                } else gson.fromJson(configFile.reader(), DiscordConfig::class.java)
-            }
-
-        private fun getDiscordChannel(id: Long): ServerTextChannel? {
-            if (discord == null) return null
-
-            val channelOptional = discord.getChannelById(id)
-            return if (channelOptional.isEmpty) null
-            else if (channelOptional.get().type != ChannelType.SERVER_TEXT_CHANNEL) null
-            else channelOptional.get().asServerTextChannel().get()
+            return@lazy if (!configFile.exists()) {
+                configFile.writeText(gson.toJson(DiscordConfig()))
+                DiscordConfig()
+            } else gson.fromJson(configFile.reader(), DiscordConfig::class.java)
         }
 
-        val discord: DiscordApi? = if (config.enabled) DiscordApiBuilder().setToken(config.token).login().join() else null
+        val discord: DiscordApi? = if (config.enabled)
+            DiscordApiBuilder()
+                .setToken(config.token)
+                .setWaitForServersOnStartup(false)
+                .login().join()
+        else null
 
         val discordPrefix = Component.text("[DISCORD]", NamedTextColor.DARK_PURPLE)
-
-        val discordChannel: ServerTextChannel? = getDiscordChannel(config.channel)
     }
 }

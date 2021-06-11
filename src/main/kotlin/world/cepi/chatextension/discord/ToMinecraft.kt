@@ -17,9 +17,11 @@ object DiscordToChat : MessageCreateListener {
         if (event.channel.id != config.channel) return
         if (event.messageAuthor.isYourself) return
         Audiences.players().sendMessage(
-            Component.text("${ChatExtension.discordPrefix} <${event.messageAuthor.displayName}> ${event.messageContent}")
-                .clickEvent(ClickEvent.openUrl(event.messageLink.ref))
-                .hoverEvent(HoverEvent.showText(Component.text("Message from the Cepi discord! Come join us at [discord link]", NamedTextColor.LIGHT_PURPLE)))
+            ChatExtension.discordPrefix.append(
+                Component.text(" <${event.messageAuthor.displayName}> ${event.messageContent}")
+                    .clickEvent(ClickEvent.openUrl(event.messageLink))
+                    .hoverEvent(HoverEvent.showText(Component.text("Message from the Cepi discord! Come join us at ${config.inviteLink}", NamedTextColor.LIGHT_PURPLE)))
+            )
         )
     }
 }

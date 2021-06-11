@@ -41,7 +41,7 @@ dependencies {
     compileOnly("com.github.Minestom:Minestom:78cc392007")
 
     // Javacord
-    implementation("org.javacord", "javacord", "3.1.1")
+    implementation("org.javacord", "javacord", "3.3.0")
 
     // implement KStom
     compileOnly("com.github.Project-Cepi:KStom:38216ae174")
@@ -57,7 +57,6 @@ tasks {
     named<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar>("shadowJar") {
         archiveBaseName.set("eris")
         mergeServiceFiles()
-        minimize()
 
     }
 
