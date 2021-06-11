@@ -117,6 +117,6 @@ class ChatExtension : Extension() {
                 .login().join()
         else null
 
-        val discordPrefix = Component.text("[DISCORD]", NamedTextColor.DARK_PURPLE)
+        val discordPrefix = Component.text("Discord: ", NamedTextColor.DARK_AQUA)
     }
 }
