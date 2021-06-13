@@ -4,6 +4,7 @@ import com.google.gson.Gson
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
 import net.kyori.adventure.text.format.TextDecoration
+import net.kyori.adventure.title.Title
 import net.minestom.server.MinecraftServer
 import net.minestom.server.adventure.audience.Audiences
 import net.minestom.server.event.EventFilter
@@ -56,6 +57,7 @@ class ChatExtension : Extension() {
 
         playerNode.listenOnly<PlayerSpawnEvent> {
             TabHandler.loadTab(player)
+            player.showTitle(Title.title(Component.empty(), Component.empty()))
         }
 
         playerNode.listenOnly<PlayerChatEvent> {
