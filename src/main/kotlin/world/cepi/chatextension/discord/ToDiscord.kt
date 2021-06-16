@@ -33,7 +33,10 @@ fun chatToDiscord(event: PlayerChatEvent) {
 private fun joinLeaveEmbed(player: Player, type: EmbedType): EmbedBuilder = EmbedBuilder()
             .setColor(if (type == EmbedType.JOIN) Color.green else Color.RED)
             .setAuthor(
-                "${player.username} has joined the server",
+                "${player.username} has ${
+                    if (type == EmbedType.JOIN) "joined"
+                    else "left"
+                } the server",
                 "",
                 "https://minotar.net/helm/${player.uuid.toString().replace("-", "")}/128.png"
             )
