@@ -14,8 +14,8 @@ object ErisCommand : Command("eris") {
             it.joinToString(" ")
         }
 
-        addSyntax(minimessage, message) { sender, args ->
-            sender.sendMessage(args[message].asMini())
+        addSyntax(minimessage, message) {
+            sender.sendMessage(context[message].asMini())
         }
     }
 

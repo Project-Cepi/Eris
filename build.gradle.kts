@@ -44,7 +44,7 @@ dependencies {
     implementation("org.javacord", "javacord", "3.3.0")
 
     // implement KStom
-    compileOnly("com.github.Project-Cepi:KStom:813a944c56")
+    compileOnly("com.github.Project-Cepi:KStom:9addc51324")
 
     implementation("net.kyori:adventure-text-minimessage:4.1.0-SNAPSHOT")
 }
