@@ -1,11 +1,15 @@
 package world.cepi.chatextension
 
 import com.google.gson.Gson
+import net.kyori.adventure.sound.Sound
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
 import net.kyori.adventure.text.format.TextDecoration
 import net.kyori.adventure.title.Title
 import net.minestom.server.MinecraftServer
+import net.minestom.server.advancements.FrameType
+import net.minestom.server.advancements.notifications.Notification
+import net.minestom.server.advancements.notifications.NotificationCenter
 import net.minestom.server.adventure.audience.Audiences
 import net.minestom.server.event.EventFilter
 import net.minestom.server.event.EventNode
@@ -14,6 +18,9 @@ import net.minestom.server.event.player.PlayerDisconnectEvent
 import net.minestom.server.event.player.PlayerLoginEvent
 import net.minestom.server.event.player.PlayerSpawnEvent
 import net.minestom.server.extensions.Extension;
+import net.minestom.server.item.ItemStack
+import net.minestom.server.item.Material
+import net.minestom.server.sound.SoundEvent
 import org.javacord.api.DiscordApi
 import org.javacord.api.DiscordApiBuilder
 import org.javacord.api.entity.channel.ChannelType
@@ -53,6 +60,14 @@ class ChatExtension : Extension() {
                     .append(Component.text("|", NamedTextColor.DARK_GRAY).decoration(TextDecoration.BOLD, false))
                     .append(Component.space())
                     .append(Component.text(player.username, NamedTextColor.GRAY).decoration(TextDecoration.BOLD, false))
+            )
+            NotificationCenter.send(
+                Notification(
+                    Component.text("Welcome to Cepi!", NamedTextColor.GRAY),
+                    FrameType.TASK,
+                    ItemStack.of(Material.OAK_DOOR)
+                ),
+                player
             )
             TabHandler.loadTab(player)
             player.showTitle(Title.title(Component.empty(), Component.empty()))
