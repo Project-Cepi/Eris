@@ -2,21 +2,23 @@ package world.cepi.chatextension.debug
 
 import net.minestom.server.command.builder.Command
 import net.minestom.server.command.builder.arguments.ArgumentType
+import world.cepi.chatextension.debug.subcommands.MiniMessageSubcommand
+import world.cepi.chatextension.debug.subcommands.ToastSubcommand
 import world.cepi.kstom.adventure.asMini
-import world.cepi.kstom.command.addSyntax
-import world.cepi.kstom.command.arguments.literal
+import world.cepi.kstom.command.addSubcommands
 
-object ErisCommand : Command("eris") {
+internal object ErisCommand : Command("eris") {
+
+    val miniMessageVarargs = ArgumentType.StringArray("message").map {
+        it.joinToString(" ").asMini()
+    }
+
+    val miniMessage = ArgumentType.String("message").map {
+        it.asMini()
+    }
 
     init {
-        val minimessage = "mini".literal()
-        val message = ArgumentType.StringArray("message").map {
-            it.joinToString(" ")
-        }
-
-        addSyntax(minimessage, message) {
-            sender.sendMessage(context[message].asMini())
-        }
+        addSubcommands(ToastSubcommand, MiniMessageSubcommand)
     }
 
 }
