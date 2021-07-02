@@ -1,7 +1,5 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
-$dokka.location:world.cepi.chatextension.debug////PointingToDeclaration/-chat-extension/world.cepi.chatextension.debug/index.html
-$dokka.location:world.cepi.chatextension.debug/ErisCommand///PointingToDeclaration/-chat-extension/world.cepi.chatextension.debug/-eris-command/index.html
 $dokka.location:world.cepi.chatextension.discord////PointingToDeclaration/-chat-extension/world.cepi.chatextension.discord/index.html
 $dokka.location:world.cepi.chatextension.discord//chatToDiscord/#net.minestom.server.event.player.PlayerChatEvent/PointingToDeclaration/-chat-extension/world.cepi.chatextension.discord/chat-to-discord.html
 $dokka.location:world.cepi.chatextension.discord//grabChannel/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension.discord/grab-channel.html
@@ -50,7 +48,6 @@ $dokka.location:world.cepi.chatextension/DiscordLink///PointingToDeclaration/-c
 $dokka.location:world.cepi.chatextension/WebsiteLink///PointingToDeclaration/-chat-extension/world.cepi.chatextension/-website-link/index.html
 $dokka.location:world.cepi.chatextension/YoutubeLink///PointingToDeclaration/-chat-extension/world.cepi.chatextension/-youtube-link/index.html
 world.cepi.chatextension
-world.cepi.chatextension.debug
 world.cepi.chatextension.discord
 world.cepi.chatextension.emojis
 world.cepi.chatextension.events
