@@ -1,12 +1,12 @@
 package world.cepi.chatextension
 
-import com.google.gson.Gson
-import net.kyori.adventure.sound.Sound
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
 import net.kyori.adventure.text.format.TextDecoration
 import net.kyori.adventure.title.Title
-import net.minestom.server.MinecraftServer
 import net.minestom.server.advancements.FrameType
 import net.minestom.server.advancements.notifications.Notification
 import net.minestom.server.advancements.notifications.NotificationCenter
@@ -20,11 +20,8 @@ import net.minestom.server.event.player.PlayerSpawnEvent
 import net.minestom.server.extensions.Extension;
 import net.minestom.server.item.ItemStack
 import net.minestom.server.item.Material
-import net.minestom.server.sound.SoundEvent
 import org.javacord.api.DiscordApi
 import org.javacord.api.DiscordApiBuilder
-import org.javacord.api.entity.channel.ChannelType
-import org.javacord.api.entity.channel.ServerTextChannel
 import world.cepi.chatextension.debug.ErisCommand
 import world.cepi.chatextension.discord.*
 import world.cepi.chatextension.emojis.EmojiCommand
@@ -39,8 +36,6 @@ class ChatExtension : Extension() {
 
     override fun initialize() {
 
-        val connectionManager = MinecraftServer.getConnectionManager()
-
         DiscordLink.register()
         YoutubeLink.register()
         WebsiteLink.register()
@@ -49,7 +44,7 @@ class ChatExtension : Extension() {
 
         val playerNode = EventNode.type("eris-player", EventFilter.PLAYER)
 
-        connectionManager.addPlayerInitialization { player ->
+        playerNode.listenOnly<PlayerLoginEvent> {
             onJoin(player)
         }
 
@@ -117,12 +112,11 @@ class ChatExtension : Extension() {
     companion object {
         val config: DiscordConfig by lazy {
             val configFile = File("./discord-config.json")
-            val gson = Gson()
 
             return@lazy if (!configFile.exists()) {
-                configFile.writeText(gson.toJson(DiscordConfig()))
+                configFile.writeText(Json.encodeToString(DiscordConfig()))
                 DiscordConfig()
-            } else gson.fromJson(configFile.reader(), DiscordConfig::class.java)
+            } else Json.decodeFromString(configFile.readText())
         }
 
         val discord: DiscordApi? = if (config.enabled)

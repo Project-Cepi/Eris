@@ -1,5 +1,8 @@
 package world.cepi.chatextension
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class DiscordConfig(
     val enabled: Boolean = false,
     val token: String = "",

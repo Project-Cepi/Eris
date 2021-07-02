@@ -5,6 +5,8 @@ plugins {
     kotlin("jvm") version "1.5.0"
     id("com.github.johnrengelman.shadow") version "7.0.0"
     id("org.jetbrains.dokka") version "1.4.32"
+    // Kotlinx serialization for any data format
+    kotlin("plugin.serialization") version "1.4.21"
 
     // Apply the application plugin to add support for building a jar
     java
@@ -37,7 +39,10 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter:5.7.2")
 
     // Compile Minestom into project
-    compileOnly("com.github.Minestom:Minestom:78cc392007")
+    compileOnly("com.github.Minestom:Minestom:2e8b3477bf")
+
+    // import kotlinx serialization
+    compileOnly("org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.1")
 
     // Javacord
     implementation("org.javacord", "javacord", "3.3.0")
