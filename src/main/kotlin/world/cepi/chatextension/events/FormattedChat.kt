@@ -49,6 +49,14 @@ fun styleFormattedChat(event: PlayerChatEvent) = event.setChatFormat { chatEvent
                         }.build())
             }
         }
+        .replaceText(
+            TextReplacementConfig.builder()
+                .match("[\\uE000-\\uF8FF]")
+                .replacement { _ ->
+                    Component.text("")
+                }
+                .build()
+        )
         .let {
             // Fold the emojis, replacing the initial value's text one by one
             return@let Emoji.emojis.fold(it) { acc, emoji ->
