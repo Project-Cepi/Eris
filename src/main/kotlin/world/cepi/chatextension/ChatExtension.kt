@@ -110,13 +110,18 @@ class ChatExtension : Extension() {
     }
 
     companion object {
+
+        val json = Json {
+            ignoreUnknownKeys = true
+        }
+
         val config: DiscordConfig by lazy {
             val configFile = File("./discord-config.json")
 
             return@lazy if (!configFile.exists()) {
-                configFile.writeText(Json.encodeToString(DiscordConfig()))
+                configFile.writeText(json.encodeToString(DiscordConfig()))
                 DiscordConfig()
-            } else Json.decodeFromString(configFile.readText())
+            } else json.decodeFromString(configFile.readText())
         }
 
         val discord: DiscordApi? = if (config.enabled)
