@@ -4,5 +4,8 @@
   "version": "0.0.1",
   "dependencies": [
     "KStom"
-  ]
+  ],
+  "meta": {
+    "downloadURL": "https://github.com/Project-Cepi/Eris/releases/download/latest/eris-0.0.1-SNAPSHOT-all.jar"
+  }
 }

@@ -23,10 +23,12 @@ internal object ToastSubcommand : Command("toast") {
         val item = ArgumentType.ItemStack("item")
             .setDefaultValue(ItemStack.of(Material.PAPER))
 
-        addSyntax(ErisCommand.miniMessage, toastType, item) {
+        val miniMessage = ErisCommand.miniMessage("miniMessage")
+
+        addSyntax(miniMessage, toastType, item) {
             NotificationCenter.send(
                 Notification(
-                    context[ErisCommand.miniMessage],
+                    context[miniMessage],
                     context[toastType],
                     context[item]
                 ),

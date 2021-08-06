@@ -49,6 +49,7 @@ fun styleFormattedChat(event: PlayerChatEvent) = event.setChatFormat { chatEvent
                         }.build())
             }
         }
+        // stop emojis from being sent raw
         .replaceText(
             TextReplacementConfig.builder()
                 .match("[\\uE000-\\uF8FF]")
