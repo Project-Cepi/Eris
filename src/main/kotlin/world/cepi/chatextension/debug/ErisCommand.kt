@@ -12,7 +12,7 @@ internal object ErisCommand : Command("eris") {
         it.joinToString(" ").asMini()
     }
 
-    fun miniMessage(id: String) = ArgumentType.String("message").map {
+    fun miniMessage(id: String) = ArgumentType.String(id).map {
         it.asMini()
     }
 
