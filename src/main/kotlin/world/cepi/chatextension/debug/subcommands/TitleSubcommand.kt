@@ -12,6 +12,7 @@ internal object TitleSubcommand : Command("title") {
     init {
 
         val full = "full".literal()
+        val clear = "clear".literal()
 
         val title = ErisCommand.miniMessage("title")
 
@@ -25,6 +26,10 @@ internal object TitleSubcommand : Command("title") {
                         context[subtitle]
                     )
                 )
+        }
+
+        addSyntax(clear) {
+            (sender as? Player)?.clearTitle()
         }
     }
 
