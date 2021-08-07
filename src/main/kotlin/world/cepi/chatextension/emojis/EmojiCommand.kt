@@ -11,9 +11,10 @@ object EmojiCommand : Command("emoji") {
         default { sender, _ ->
             Emoji.emojis.forEach {
                 sender.sendMessage(
-                    Component.text(it.name, NamedTextColor.GRAY)
-                        .append(Component.text(":", NamedTextColor.DARK_GRAY))
-                        .append(Component.space())
+                    Component.text(":", NamedTextColor.WHITE)
+                        .append(Component.text(it.name, NamedTextColor.GRAY))
+                        .append(Component.text(":", NamedTextColor.WHITE))
+                        .append(Component.text(" / ", NamedTextColor.DARK_GRAY))
                         .append(Component.text(it.value, NamedTextColor.WHITE))
                 )
             }

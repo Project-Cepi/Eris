@@ -7,6 +7,7 @@ import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
 import net.kyori.adventure.text.format.TextDecoration
 import net.kyori.adventure.title.Title
+import net.kyori.adventure.util.Ticks
 import net.minestom.server.advancements.FrameType
 import net.minestom.server.advancements.notifications.Notification
 import net.minestom.server.advancements.notifications.NotificationCenter
@@ -56,6 +57,13 @@ class ChatExtension : Extension() {
                     .append(Component.space())
                     .append(Component.text(player.username, NamedTextColor.GRAY).decoration(TextDecoration.BOLD, false))
             )
+
+            player.showTitle(Title.title(
+                Component.text("\uE00A"),
+                Component.empty(),
+                Title.Times.of(Ticks.duration(0), Ticks.duration(10), Ticks.duration(20))
+            ))
+
             NotificationCenter.send(
                 Notification(
                     Component.text("Welcome to Cepi!", NamedTextColor.GRAY),
@@ -65,7 +73,6 @@ class ChatExtension : Extension() {
                 player
             )
             TabHandler.loadTab(player)
-            player.showTitle(Title.title(Component.empty(), Component.empty()))
         }
 
         playerNode.listenOnly<PlayerChatEvent> {
