@@ -27,6 +27,7 @@ import world.cepi.chatextension.debug.ErisCommand
 import world.cepi.chatextension.discord.*
 import world.cepi.chatextension.emojis.EmojiCommand
 import world.cepi.chatextension.events.styleFormattedChat
+import world.cepi.chatextension.social.messaging.MessageCommand
 import world.cepi.chatextension.tab.TabHandler
 import world.cepi.kstom.command.register
 import world.cepi.kstom.command.unregister
@@ -42,6 +43,7 @@ class ChatExtension : Extension() {
         WebsiteLink.register()
         EmojiCommand.register()
         ErisCommand.register()
+        MessageCommand.register()
 
         val playerNode = EventNode.type("eris-player", EventFilter.PLAYER)
 
@@ -112,6 +114,7 @@ class ChatExtension : Extension() {
         WebsiteLink.unregister()
         EmojiCommand.unregister()
         ErisCommand.unregister()
+        MessageCommand.unregister()
 
         logger.info("[ChatExtension] has been disabled!")
     }
