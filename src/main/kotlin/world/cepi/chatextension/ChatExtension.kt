@@ -47,16 +47,13 @@ class ChatExtension : Extension() {
 
         val playerNode = EventNode.type("eris-player", EventFilter.PLAYER)
 
-        playerNode.listenOnly<PlayerLoginEvent> {
-            onJoin(player)
-        }
-
         playerNode.listenOnly<PlayerSpawnEvent> {
+
+            onJoin(player)
+
             Audiences.all().sendMessage(
                 Component.text("JOIN", NamedTextColor.GREEN, TextDecoration.BOLD)
-                    .append(Component.space())
-                    .append(Component.text("|", NamedTextColor.DARK_GRAY).decoration(TextDecoration.BOLD, false))
-                    .append(Component.space())
+                    .append(Component.text(" | ", NamedTextColor.DARK_GRAY).decoration(TextDecoration.BOLD, false))
                     .append(Component.text(player.username, NamedTextColor.GRAY).decoration(TextDecoration.BOLD, false))
             )
 
@@ -74,6 +71,7 @@ class ChatExtension : Extension() {
                 ),
                 player
             )
+
             TabHandler.loadTab(player)
         }
 
