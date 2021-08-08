@@ -22,6 +22,10 @@ $dokka.location:world.cepi.chatextension.emojis/EmojiCommand///PointingToDeclara
 $dokka.location:world.cepi.chatextension.events////PointingToDeclaration/-chat-extension/world.cepi.chatextension.events/index.html
 $dokka.location:world.cepi.chatextension.events//miniMessageFormat/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension.events/mini-message-format.html
 $dokka.location:world.cepi.chatextension.events//styleFormattedChat/#net.minestom.server.event.player.PlayerChatEvent/PointingToDeclaration/-chat-extension/world.cepi.chatextension.events/style-formatted-chat.html
+$dokka.location:world.cepi.chatextension.social.messaging////PointingToDeclaration/-chat-extension/world.cepi.chatextension.social.messaging/index.html
+$dokka.location:world.cepi.chatextension.social.messaging/MessageCommand///PointingToDeclaration/-chat-extension/world.cepi.chatextension.social.messaging/-message-command/index.html
+$dokka.location:world.cepi.chatextension.social.messaging/MessageHandler///PointingToDeclaration/-chat-extension/world.cepi.chatextension.social.messaging/-message-handler/index.html
+$dokka.location:world.cepi.chatextension.social.messaging/MessageHandler/send/#net.minestom.server.command.CommandSender#net.minestom.server.entity.Player#kotlin.String/PointingToDeclaration/-chat-extension/world.cepi.chatextension.social.messaging/-message-handler/send.html
 $dokka.location:world.cepi.chatextension.tab////PointingToDeclaration/-chat-extension/world.cepi.chatextension.tab/index.html
 $dokka.location:world.cepi.chatextension.tab/TabHandler///PointingToDeclaration/-chat-extension/world.cepi.chatextension.tab/-tab-handler/index.html
 $dokka.location:world.cepi.chatextension.tab/TabHandler/footer/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension.tab/-tab-handler/footer.html
@@ -55,5 +59,6 @@ world.cepi.chatextension.debug.subcommands
 world.cepi.chatextension.discord
 world.cepi.chatextension.emojis
 world.cepi.chatextension.events
+world.cepi.chatextension.social.messaging
 world.cepi.chatextension.tab
 
