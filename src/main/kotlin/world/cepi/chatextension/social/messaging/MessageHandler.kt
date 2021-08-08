@@ -7,8 +7,18 @@ import net.minestom.server.command.CommandSender
 import net.minestom.server.entity.Player
 import world.cepi.chatextension.events.miniMessageFormat
 
+/**
+ * Handles messaging between two users, including console.
+ */
 object MessageHandler {
 
+    /**
+     * Sends a message from [from] to [to] with the [message] payload
+     *
+     * @param from The sender of this message
+     * @param to Who to send this message to
+     * @param message The message to send (markdown support)
+     */
     fun send(from: CommandSender, to: Player, message: String) {
 
         val fromUsername = (from as? Player)?.username ?: "Console"
