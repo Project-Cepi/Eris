@@ -65,7 +65,7 @@ class ChatExtension : Extension() {
 
             NotificationCenter.send(
                 Notification(
-                    Component.text("Welcome to Cepi!", NamedTextColor.GRAY),
+                    Component.text("Welcome to ", NamedTextColor.GRAY).append(Component.text("cepi.world", NamedTextColor.BLUE)),
                     FrameType.TASK,
                     ItemStack.of(Material.OAK_DOOR)
                 ),
