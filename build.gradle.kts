@@ -39,7 +39,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter:5.7.2")
 
     // Compile Minestom into project
-    compileOnly("com.github.Minestom:Minestom:2e8b3477bf")
+    compileOnly("com.github.Minestom:Minestom:2ef8e957a0")
 
     // import kotlinx serialization
     compileOnly("org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.2")
@@ -48,7 +48,7 @@ dependencies {
     implementation("org.javacord", "javacord", "3.3.0")
 
     // implement KStom
-    compileOnly("com.github.Project-Cepi:KStom:62ddba2b59")
+    compileOnly("com.github.Project-Cepi:KStom:04d5c6a4f4")
 
     implementation("net.kyori:adventure-text-minimessage:4.1.0-SNAPSHOT")
 }

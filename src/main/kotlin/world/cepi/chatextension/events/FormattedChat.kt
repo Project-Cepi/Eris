@@ -38,7 +38,7 @@ fun styleFormattedChat(event: PlayerChatEvent) = event.setChatFormat { chatEvent
                             val (x, y, z) = player.position
 
                             player.playSound(Sound.sound(
-                                SoundEvent.NOTE_BLOCK_PLING,
+                                SoundEvent.BLOCK_NOTE_BLOCK_PLING,
                                 Sound.Source.PLAYER,
                                 1f, 2f,
                             ), x, y, z)
