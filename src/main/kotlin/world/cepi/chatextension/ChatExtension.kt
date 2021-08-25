@@ -49,6 +49,8 @@ class ChatExtension : Extension() {
 
         playerNode.listenOnly<PlayerSpawnEvent> {
 
+            if (!isFirstSpawn) return@listenOnly
+
             onJoin(player)
 
             Audiences.all().sendMessage(
