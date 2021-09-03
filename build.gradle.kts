@@ -45,7 +45,7 @@ dependencies {
     compileOnly("org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.2")
 
     // Javacord
-    implementation("org.javacord", "javacord", "3.3.0")
+    implementation("org.javacord", "javacord", "3.3.2")
 
     // implement KStom
     compileOnly("com.github.Project-Cepi:KStom:04d5c6a4f4")
