@@ -6,7 +6,7 @@ plugins {
     id("com.github.johnrengelman.shadow") version "7.0.0"
     id("org.jetbrains.dokka") version "1.5.0"
     // Kotlinx serialization for any data format
-    kotlin("plugin.serialization") version "1.4.21"
+    kotlin("plugin.serialization") version "1.5.30"
 
     // Apply the application plugin to add support for building a jar
     java
