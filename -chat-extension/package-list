@@ -20,11 +20,14 @@ $dokka.location:world.cepi.chatextension.emojis/Emoji/name/#/PointingToDeclarati
 $dokka.location:world.cepi.chatextension.emojis/Emoji/value/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension.emojis/-emoji/value.html
 $dokka.location:world.cepi.chatextension.emojis/EmojiCommand///PointingToDeclaration/-chat-extension/world.cepi.chatextension.emojis/-emoji-command/index.html
 $dokka.location:world.cepi.chatextension.events////PointingToDeclaration/-chat-extension/world.cepi.chatextension.events/index.html
-$dokka.location:world.cepi.chatextension.events//miniMessageFormat/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension.events/mini-message-format.html
-$dokka.location:world.cepi.chatextension.events//styleFormattedChat/#net.minestom.server.event.player.PlayerChatEvent/PointingToDeclaration/-chat-extension/world.cepi.chatextension.events/style-formatted-chat.html
+$dokka.location:world.cepi.chatextension.events/FormattedChat///PointingToDeclaration/-chat-extension/world.cepi.chatextension.events/-formatted-chat/index.html
+$dokka.location:world.cepi.chatextension.events/FormattedChat/logger/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension.events/-formatted-chat/logger.html
+$dokka.location:world.cepi.chatextension.events/FormattedChat/miniMessageFormat/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension.events/-formatted-chat/mini-message-format.html
+$dokka.location:world.cepi.chatextension.events/FormattedChat/styleFormattedChat/#net.minestom.server.event.player.PlayerChatEvent/PointingToDeclaration/-chat-extension/world.cepi.chatextension.events/-formatted-chat/style-formatted-chat.html
 $dokka.location:world.cepi.chatextension.social.messaging////PointingToDeclaration/-chat-extension/world.cepi.chatextension.social.messaging/index.html
 $dokka.location:world.cepi.chatextension.social.messaging/MessageCommand///PointingToDeclaration/-chat-extension/world.cepi.chatextension.social.messaging/-message-command/index.html
 $dokka.location:world.cepi.chatextension.social.messaging/MessageHandler///PointingToDeclaration/-chat-extension/world.cepi.chatextension.social.messaging/-message-handler/index.html
+$dokka.location:world.cepi.chatextension.social.messaging/MessageHandler/logger/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension.social.messaging/-message-handler/logger.html
 $dokka.location:world.cepi.chatextension.social.messaging/MessageHandler/send/#net.minestom.server.command.CommandSender#net.minestom.server.entity.Player#kotlin.String/PointingToDeclaration/-chat-extension/world.cepi.chatextension.social.messaging/-message-handler/send.html
 $dokka.location:world.cepi.chatextension.tab////PointingToDeclaration/-chat-extension/world.cepi.chatextension.tab/index.html
 $dokka.location:world.cepi.chatextension.tab/TabHandler///PointingToDeclaration/-chat-extension/world.cepi.chatextension.tab/-tab-handler/index.html
