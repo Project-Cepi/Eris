@@ -26,7 +26,7 @@ import org.javacord.api.DiscordApiBuilder
 import world.cepi.chatextension.debug.ErisCommand
 import world.cepi.chatextension.discord.*
 import world.cepi.chatextension.emojis.EmojiCommand
-import world.cepi.chatextension.events.styleFormattedChat
+import world.cepi.chatextension.events.FormattedChat
 import world.cepi.chatextension.social.messaging.MessageCommand
 import world.cepi.chatextension.tab.TabHandler
 import world.cepi.kstom.command.register
@@ -79,7 +79,7 @@ class ChatExtension : Extension() {
 
         playerNode.listenOnly<PlayerChatEvent> {
             chatToDiscord(this)
-            styleFormattedChat(this)
+            FormattedChat.styleFormattedChat(this)
         }
 
         playerNode.listenOnly<PlayerDisconnectEvent> {
