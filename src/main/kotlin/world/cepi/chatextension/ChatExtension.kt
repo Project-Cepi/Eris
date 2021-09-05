@@ -26,6 +26,7 @@ import org.javacord.api.DiscordApiBuilder
 import world.cepi.chatextension.debug.ErisCommand
 import world.cepi.chatextension.discord.*
 import world.cepi.chatextension.emojis.EmojiCommand
+import world.cepi.chatextension.events.CommandLogger
 import world.cepi.chatextension.events.FormattedChat
 import world.cepi.chatextension.social.messaging.MessageCommand
 import world.cepi.chatextension.tab.TabHandler
@@ -76,6 +77,8 @@ class ChatExtension : Extension() {
 
             TabHandler.loadTab(player)
         }
+
+        playerNode.listenOnly(CommandLogger::hook)
 
         playerNode.listenOnly<PlayerChatEvent> {
             chatToDiscord(this)
