@@ -20,6 +20,9 @@ $dokka.location:world.cepi.chatextension.emojis/Emoji/name/#/PointingToDeclarati
 $dokka.location:world.cepi.chatextension.emojis/Emoji/value/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension.emojis/-emoji/value.html
 $dokka.location:world.cepi.chatextension.emojis/EmojiCommand///PointingToDeclaration/-chat-extension/world.cepi.chatextension.emojis/-emoji-command/index.html
 $dokka.location:world.cepi.chatextension.events////PointingToDeclaration/-chat-extension/world.cepi.chatextension.events/index.html
+$dokka.location:world.cepi.chatextension.events/CommandLogger///PointingToDeclaration/-chat-extension/world.cepi.chatextension.events/-command-logger/index.html
+$dokka.location:world.cepi.chatextension.events/CommandLogger/hook/#net.minestom.server.event.player.PlayerCommandEvent/PointingToDeclaration/-chat-extension/world.cepi.chatextension.events/-command-logger/hook.html
+$dokka.location:world.cepi.chatextension.events/CommandLogger/logger/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension.events/-command-logger/logger.html
 $dokka.location:world.cepi.chatextension.events/FormattedChat///PointingToDeclaration/-chat-extension/world.cepi.chatextension.events/-formatted-chat/index.html
 $dokka.location:world.cepi.chatextension.events/FormattedChat/logger/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension.events/-formatted-chat/logger.html
 $dokka.location:world.cepi.chatextension.events/FormattedChat/miniMessageFormat/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension.events/-formatted-chat/mini-message-format.html
