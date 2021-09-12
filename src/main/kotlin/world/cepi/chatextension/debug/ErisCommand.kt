@@ -39,16 +39,25 @@ internal object ErisCommand : Command("eris") {
 
             val startIndex = input.lastIndexOf('<').also {
                 // < needs to appear for this to suggest
-                if (it == -1) return@setSuggestionCallback
+                if (it == -1) {
+                    suggestion.addEntry(SuggestionEntry(input, input.asMini()))
+                    return@setSuggestionCallback
+                }
 
                 // > shouldn't appear after the last occurance of <
-                if (endIndex > it) return@setSuggestionCallback
+                if (endIndex > it) {
+                    suggestion.addEntry(SuggestionEntry(input, input.asMini()))
+                    return@setSuggestionCallback
+                }
             }
 
             if (when (input.indexOf("<pre>")) {
                 -1 -> Int.MAX_VALUE
                 else -> input.indexOf("<pre>")
-            } < startIndex) return@setSuggestionCallback
+            } < startIndex) {
+                suggestion.addEntry(SuggestionEntry(input, input.asMini()))
+                return@setSuggestionCallback
+            }
 
             (NamedTextColor.NAMES.keys().map(String::lowercase) + allMiniMessageTerms)
                 .mapNotNull {
@@ -61,10 +70,12 @@ internal object ErisCommand : Command("eris") {
                     // Drop "re" from red, returning d
                     return@mapNotNull it.drop(content.length)
                 }
-                .map { "$input$it>" }
-                .forEach {
-                    suggestion.addEntry(SuggestionEntry(it))
+                .map { SuggestionEntry("$input$it>") }
+                .also {
+                    if (it.isEmpty())
+                        suggestion.addEntry(SuggestionEntry(input, input.asMini()))
                 }
+                .forEach(suggestion::addEntry)
         }
     }
 
