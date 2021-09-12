@@ -61,7 +61,7 @@ internal object ErisCommand : Command("eris") {
                     // Drop "re" from red, returning d
                     return@mapNotNull it.drop(content.length)
                 }
-                .map { input + it }
+                .map { "$input$it>" }
                 .forEach {
                     suggestion.addEntry(SuggestionEntry(it))
                 }
