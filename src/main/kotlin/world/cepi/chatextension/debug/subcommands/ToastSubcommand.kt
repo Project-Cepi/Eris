@@ -10,31 +10,28 @@ import net.minestom.server.entity.Player
 import net.minestom.server.item.ItemStack
 import net.minestom.server.item.Material
 import world.cepi.chatextension.debug.ErisCommand
-import world.cepi.kstom.command.addSyntax
+import world.cepi.kstom.command.kommand.Kommand
 
-internal object ToastSubcommand : Command("toast") {
+internal object ToastSubcommand : Kommand({
 
-    init {
+    val toastType = ArgumentType.Enum("frameType", FrameType::class.java)
+        .setFormat(ArgumentEnum.Format.LOWER_CASED)
+        .setDefaultValue(FrameType.TASK)
 
-        val toastType = ArgumentType.Enum("frameType", FrameType::class.java)
-            .setFormat(ArgumentEnum.Format.LOWER_CASED)
-            .setDefaultValue(FrameType.TASK)
+    val item = ArgumentType.ItemStack("item")
+        .setDefaultValue(ItemStack.of(Material.PAPER))
 
-        val item = ArgumentType.ItemStack("item")
-            .setDefaultValue(ItemStack.of(Material.PAPER))
+    val miniMessage = ErisCommand.miniMessage("miniMessage")
 
-        val miniMessage = ErisCommand.miniMessage("miniMessage")
-
-        addSyntax(miniMessage, toastType, item) {
-            NotificationCenter.send(
-                Notification(
-                    context[miniMessage],
-                    context[toastType],
-                    context[item]
-                ),
-                sender as Player
-            )
-        }
+    syntax(miniMessage, toastType, item) {
+        NotificationCenter.send(
+            Notification(
+                context[miniMessage],
+                context[toastType],
+                context[item]
+            ),
+            sender as Player
+        )
     }
 
-}
+}, "toast")

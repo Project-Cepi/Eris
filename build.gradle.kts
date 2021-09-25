@@ -48,7 +48,7 @@ dependencies {
     implementation("org.javacord", "javacord", "3.3.2")
 
     // implement KStom
-    compileOnly("com.github.Project-Cepi:KStom:04d5c6a4f4")
+    compileOnly("com.github.Project-Cepi:KStom:e3ddf8f437")
 
     implementation("net.kyori:adventure-text-minimessage:4.1.0-SNAPSHOT")
 
@@ -74,16 +74,16 @@ tasks {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_16
+    targetCompatibility = JavaVersion.VERSION_16
 }
 
 val compileKotlin: KotlinCompile by tasks
 compileKotlin.kotlinOptions {
-    jvmTarget = "11"
+    jvmTarget = "16"
 }
 
 val compileTestKotlin: KotlinCompile by tasks
 compileTestKotlin.kotlinOptions {
-    jvmTarget = "11"
+    jvmTarget = "16"
 }

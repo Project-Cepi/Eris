@@ -1,15 +1,13 @@
 package world.cepi.chatextension.debug.subcommands
 
-import net.minestom.server.command.builder.Command
 import world.cepi.chatextension.debug.ErisCommand
-import world.cepi.kstom.command.addSyntax
+import world.cepi.kstom.command.kommand.Kommand
 
-internal object MiniMessageSubcommand : Command("mini") {
+internal object MiniMessageSubcommand : Kommand({
 
-    init {
-        addSyntax(ErisCommand.miniMessageVarargs) {
-            sender.sendMessage(context[ErisCommand.miniMessageVarargs])
-        }
+    syntax(ErisCommand.miniMessageVarargs) {
+        sender.sendMessage(context[ErisCommand.miniMessageVarargs])
     }
 
-}
+
+}, "mini")

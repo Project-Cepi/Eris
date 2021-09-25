@@ -1,14 +1,13 @@
 package world.cepi.chatextension.debug
 
 import net.kyori.adventure.text.format.NamedTextColor
-import net.minestom.server.command.builder.Command
 import net.minestom.server.command.builder.arguments.ArgumentType
 import net.minestom.server.command.builder.suggestion.SuggestionEntry
 import world.cepi.chatextension.debug.subcommands.*
 import world.cepi.kstom.adventure.asMini
-import world.cepi.kstom.command.addSubcommands
+import world.cepi.kstom.command.kommand.Kommand
 
-internal object ErisCommand : Command("eris") {
+internal object ErisCommand : Kommand(name = "eris") {
 
     val contentRegex = Regex("(?<=<)[A-z1-9#:]+\$")
 

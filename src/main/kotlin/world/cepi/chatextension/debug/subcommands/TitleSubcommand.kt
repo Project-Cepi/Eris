@@ -1,36 +1,28 @@
 package world.cepi.chatextension.debug.subcommands
 
 import net.kyori.adventure.title.Title
-import net.minestom.server.command.builder.Command
-import net.minestom.server.entity.Player
 import world.cepi.chatextension.debug.ErisCommand
-import world.cepi.kstom.command.addSyntax
 import world.cepi.kstom.command.arguments.literal
+import world.cepi.kstom.command.kommand.Kommand
 
-internal object TitleSubcommand : Command("title") {
+internal object TitleSubcommand : Kommand({
+    val full by literal
+    val clear by literal
 
-    init {
+    val title = ErisCommand.miniMessage("title")
 
-        val full = "full".literal()
-        val clear = "clear".literal()
+    val subtitle = ErisCommand.miniMessage("subtitle")
 
-        val title = ErisCommand.miniMessage("title")
-
-        val subtitle = ErisCommand.miniMessage("subtitle")
-
-        addSyntax(full, title, subtitle) {
-            (sender as? Player)
-                ?.showTitle(
-                    Title.title(
-                        context[title],
-                        context[subtitle]
-                    )
-                )
-        }
-
-        addSyntax(clear) {
-            (sender as? Player)?.clearTitle()
-        }
+    syntax(full, title, subtitle).onlyPlayers {
+        player.showTitle(
+            Title.title(
+                context[title],
+                context[subtitle]
+            )
+        )
     }
 
-}
+    syntax(clear).onlyPlayers {
+        player.clearTitle()
+    }
+}, "title")
