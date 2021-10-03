@@ -60,6 +60,8 @@ class ChatExtension : Extension() {
                     .append(Component.text(player.username, NamedTextColor.GRAY).decoration(TextDecoration.BOLD, false))
             )
 
+            player.clearTitle()
+
             NotificationCenter.send(
                 Notification(
                     Component.text("Welcome to ", NamedTextColor.GRAY).append(Component.text("cepi.world", NamedTextColor.BLUE)),
