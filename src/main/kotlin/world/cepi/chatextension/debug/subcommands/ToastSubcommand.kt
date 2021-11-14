@@ -10,6 +10,7 @@ import net.minestom.server.entity.Player
 import net.minestom.server.item.ItemStack
 import net.minestom.server.item.Material
 import world.cepi.chatextension.debug.ErisCommand
+import world.cepi.kstom.command.arguments.MiniMessageArgument
 import world.cepi.kstom.command.kommand.Kommand
 
 internal object ToastSubcommand : Kommand({
@@ -21,7 +22,7 @@ internal object ToastSubcommand : Kommand({
     val item = ArgumentType.ItemStack("item")
         .setDefaultValue(ItemStack.of(Material.PAPER))
 
-    val miniMessage = ErisCommand.miniMessage("miniMessage")
+    val miniMessage = MiniMessageArgument.single("miniMessage")
 
     syntax(miniMessage, toastType, item) {
         NotificationCenter.send(
