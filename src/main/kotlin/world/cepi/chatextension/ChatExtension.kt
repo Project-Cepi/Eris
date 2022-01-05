@@ -33,11 +33,13 @@ import world.cepi.chatextension.tab.TabHandler
 import world.cepi.kstom.command.register
 import world.cepi.kstom.command.unregister
 import world.cepi.kstom.event.listenOnly
+import world.cepi.kstom.util.log
+import world.cepi.kstom.util.node
 import java.io.File
 
 class ChatExtension : Extension() {
 
-    override fun initialize() {
+    override fun initialize(): LoadStatus {
 
         DiscordLink.register()
         YoutubeLink.register()
@@ -92,18 +94,20 @@ class ChatExtension : Extension() {
             onLeave(this.player)
         }
 
-        eventNode.addChild(playerNode)
+        node.addChild(playerNode)
 
         if (discord != null) {
             discord.addMessageCreateListener(DiscordToChat)
             discord.addServerMemberJoinListener(OnJoin)
         }
 
-        logger.info("[ChatExtension] has been enabled!")
+        log.info("[ChatExtension] has been enabled!")
 
         if (config.enabled) {
-            logger.info("[ChatExtension] Your discord bot can be invited with this link: ${discord?.createBotInvite()}")
+            log.info("[ChatExtension] Your discord bot can be invited with this link: ${discord?.createBotInvite()}")
         }
+
+        return LoadStatus.SUCCESS
     }
 
     override fun terminate() {
@@ -115,7 +119,7 @@ class ChatExtension : Extension() {
         ErisCommand.unregister()
         MessageCommand.unregister()
 
-        logger.info("[ChatExtension] has been disabled!")
+        log.info("[ChatExtension] has been disabled!")
     }
 
     companion object {

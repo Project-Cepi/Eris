@@ -39,7 +39,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
 
     // Compile Minestom into project
-    compileOnly("com.github.Minestom:Minestom:2ef8e957a0")
+    compileOnly("com.github.Minestom:Minestom:4ee5cbe424")
 
     // import kotlinx serialization
     compileOnly("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.1")
@@ -48,7 +48,7 @@ dependencies {
     implementation("org.javacord", "javacord", "3.3.2")
 
     // implement KStom
-    compileOnly("com.github.Project-Cepi:KStom:bc22d69b86")
+    compileOnly("com.github.Project-Cepi:KStom:05b5e1f2a1")
 
     implementation("net.kyori:adventure-text-minimessage:4.1.0-SNAPSHOT")
 
@@ -74,16 +74,16 @@ tasks {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_16
-    targetCompatibility = JavaVersion.VERSION_16
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 val compileKotlin: KotlinCompile by tasks
 compileKotlin.kotlinOptions {
-    jvmTarget = "16"
+    jvmTarget = "17"
 }
 
 val compileTestKotlin: KotlinCompile by tasks
 compileTestKotlin.kotlinOptions {
-    jvmTarget = "16"
+    jvmTarget = "17"
 }
