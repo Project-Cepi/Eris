@@ -31,6 +31,7 @@ import world.cepi.chatextension.events.FormattedChat
 import world.cepi.chatextension.sidebar.SidebarManager
 import world.cepi.chatextension.social.messaging.MessageCommand
 import world.cepi.chatextension.tab.TabHandler
+import world.cepi.kstom.adventure.asMini
 import world.cepi.kstom.command.register
 import world.cepi.kstom.command.unregister
 import world.cepi.kstom.event.listenOnly
@@ -58,11 +59,17 @@ class ChatExtension : Extension() {
 
             onJoin(player)
 
-            Audiences.all().sendMessage(
+            player.sendMessage(Component.text("\n"))
+
+            Audiences.all { it != player }.sendMessage(
                 Component.text("JOIN", NamedTextColor.GREEN, TextDecoration.BOLD)
                     .append(Component.text(" | ", NamedTextColor.DARK_GRAY).decoration(TextDecoration.BOLD, false))
                     .append(Component.text(player.username, NamedTextColor.GRAY).decoration(TextDecoration.BOLD, false))
             )
+
+            player.sendMessage("<dark_gray>>>> <gray>Welcome to <gradient:green:#00b9ff>cepi.world</gradient>!".asMini())
+
+            player.sendMessage(Component.text("\n"))
 
             player.clearTitle()
 
