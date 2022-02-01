@@ -28,6 +28,7 @@ import world.cepi.chatextension.discord.*
 import world.cepi.chatextension.emojis.EmojiCommand
 import world.cepi.chatextension.events.CommandLogger
 import world.cepi.chatextension.events.FormattedChat
+import world.cepi.chatextension.sidebar.SidebarManager
 import world.cepi.chatextension.social.messaging.MessageCommand
 import world.cepi.chatextension.tab.TabHandler
 import world.cepi.kstom.command.register
@@ -35,6 +36,7 @@ import world.cepi.kstom.command.unregister
 import world.cepi.kstom.event.listenOnly
 import world.cepi.kstom.util.log
 import world.cepi.kstom.util.node
+import world.cepi.level.events.XPChangeEvent
 import java.io.File
 
 class ChatExtension : Extension() {
@@ -50,9 +52,9 @@ class ChatExtension : Extension() {
 
         val playerNode = EventNode.type("eris-player", EventFilter.PLAYER)
 
-        playerNode.listenOnly<PlayerSpawnEvent> {
+        playerNode.listenOnly<PlayerSpawnEvent> spawn@ {
 
-            if (!isFirstSpawn) return@listenOnly
+            if (!isFirstSpawn) return@spawn
 
             onJoin(player)
 
@@ -74,6 +76,7 @@ class ChatExtension : Extension() {
             )
 
             TabHandler.loadTab(player)
+            SidebarManager.loadSidebar(player, node)
         }
 
         playerNode.listenOnly(CommandLogger::hook)
