@@ -27,6 +27,10 @@ $dokka.location:world.cepi.chatextension.events/FormattedChat///PointingToDeclar
 $dokka.location:world.cepi.chatextension.events/FormattedChat/logger/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension.events/-formatted-chat/logger.html
 $dokka.location:world.cepi.chatextension.events/FormattedChat/miniMessageFormat/#/PointingToDeclaration/-chat-extension/world.cepi.chatextension.events/-formatted-chat/mini-message-format.html
 $dokka.location:world.cepi.chatextension.events/FormattedChat/styleFormattedChat/#net.minestom.server.event.player.PlayerChatEvent/PointingToDeclaration/-chat-extension/world.cepi.chatextension.events/-formatted-chat/style-formatted-chat.html
+$dokka.location:world.cepi.chatextension.sidebar////PointingToDeclaration/-chat-extension/world.cepi.chatextension.sidebar/index.html
+$dokka.location:world.cepi.chatextension.sidebar/SidebarManager///PointingToDeclaration/-chat-extension/world.cepi.chatextension.sidebar/-sidebar-manager/index.html
+$dokka.location:world.cepi.chatextension.sidebar/SidebarManager/emptyLine/#kotlin.Int/PointingToDeclaration/-chat-extension/world.cepi.chatextension.sidebar/-sidebar-manager/empty-line.html
+$dokka.location:world.cepi.chatextension.sidebar/SidebarManager/loadSidebar/#net.minestom.server.entity.Player#net.minestom.server.event.EventNode[net.minestom.server.event.Event]/PointingToDeclaration/-chat-extension/world.cepi.chatextension.sidebar/-sidebar-manager/load-sidebar.html
 $dokka.location:world.cepi.chatextension.social.messaging////PointingToDeclaration/-chat-extension/world.cepi.chatextension.social.messaging/index.html
 $dokka.location:world.cepi.chatextension.social.messaging/MessageCommand///PointingToDeclaration/-chat-extension/world.cepi.chatextension.social.messaging/-message-command/index.html
 $dokka.location:world.cepi.chatextension.social.messaging/MessageHandler///PointingToDeclaration/-chat-extension/world.cepi.chatextension.social.messaging/-message-handler/index.html
@@ -65,6 +69,7 @@ world.cepi.chatextension.debug.subcommands
 world.cepi.chatextension.discord
 world.cepi.chatextension.emojis
 world.cepi.chatextension.events
+world.cepi.chatextension.sidebar
 world.cepi.chatextension.social.messaging
 world.cepi.chatextension.tab
 
