@@ -48,7 +48,7 @@ dependencies {
     implementation("org.javacord", "javacord", "3.3.2")
 
     // implement KStom
-    compileOnly("com.github.Project-Cepi:KStom:9aa94ba982")
+    compileOnly("com.github.Project-Cepi:KStom:15bab227a2")
 
     // Add EnergyExtension
     compileOnly("com.github.Project-Cepi:EnergyExtension:d6343c100c")
