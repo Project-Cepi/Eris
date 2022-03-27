@@ -56,7 +56,7 @@ dependencies {
     // Add LevelExtension
     compileOnly("com.github.Project-Cepi:LevelExtension:cae5707195")
 
-    implementation("net.kyori:adventure-text-minimessage:4.1.0-SNAPSHOT")
+    compileOnly("net.kyori:adventure-text-minimessage:4.2.0-SNAPSHOT")
 
     // Jansi
     compileOnly("org.jline:jline-terminal-jansi:3.21.0")
