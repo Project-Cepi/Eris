@@ -48,7 +48,7 @@ dependencies {
     implementation("org.javacord", "javacord", "3.3.2")
 
     // implement KStom
-    compileOnly("com.github.Project-Cepi:KStom:15bab227a2")
+    compileOnly("com.github.Project-Cepi:KStom:1229e45e12")
 
     // Add EnergyExtension
     compileOnly("com.github.Project-Cepi:EnergyExtension:d6343c100c")
@@ -56,7 +56,7 @@ dependencies {
     // Add LevelExtension
     compileOnly("com.github.Project-Cepi:LevelExtension:cae5707195")
 
-    compileOnly("net.kyori:adventure-text-minimessage:4.2.0-SNAPSHOT")
+    implementation("net.kyori:adventure-text-minimessage:4.10.1-SNAPSHOT")
 
     // Jansi
     compileOnly("org.jline:jline-terminal-jansi:3.21.0")
