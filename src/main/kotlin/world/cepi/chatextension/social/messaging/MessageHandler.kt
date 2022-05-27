@@ -32,14 +32,14 @@ object MessageHandler {
             Component.text("To ", TextColor.color(209, 209, 209))
                 .append(Component.text(to.username, NamedTextColor.GRAY))
                 .append(Component.text(" // ", NamedTextColor.DARK_GRAY))
-                .append(FormattedChat.miniMessageFormat.parse(message))
+                .append(FormattedChat.miniMessageFormat.deserialize(message))
         )
 
         to.sendMessage(
             Component.text("From ", TextColor.color(209, 209, 209))
                 .append(Component.text(fromUsername, NamedTextColor.GRAY))
                 .append(Component.text(" // ", NamedTextColor.DARK_GRAY))
-                .append(FormattedChat.miniMessageFormat.parse(message))
+                .append(FormattedChat.miniMessageFormat.deserialize(message))
         )
 
         logger.info(
@@ -48,7 +48,7 @@ object MessageHandler {
                 .fgRgb(156, 156, 156).a(" -> ")
                 .fgDefault().a(to.username)
                 .fgRgb(156, 156, 156).a(" // ")
-                .fgDefault().a(LegacyComponentSerializer.legacyAmpersand().serialize(FormattedChat.miniMessageFormat.parse(message)))
+                .fgDefault().a(LegacyComponentSerializer.legacyAmpersand().serialize(FormattedChat.miniMessageFormat.deserialize(message)))
                 .reset().toString()
         )
     }

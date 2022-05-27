@@ -14,16 +14,16 @@ internal object TitleSubcommand : Kommand({
 
     val subtitle = MiniMessageArgument.single("subtitle")
 
-    syntax(full, title, subtitle).onlyPlayers {
+    syntax(full, title, subtitle) {
         player.showTitle(
             Title.title(
                 context[title],
                 context[subtitle]
             )
         )
-    }
+    }.onlyPlayers()
 
-    syntax(clear).onlyPlayers {
+    syntax(clear) {
         player.clearTitle()
-    }
+    }.onlyPlayers()
 }, "title")
