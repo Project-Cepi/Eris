@@ -59,7 +59,7 @@ dependencies {
     implementation("net.kyori:adventure-text-minimessage:4.10.1-SNAPSHOT")
 
     // Jansi
-    compileOnly("org.jline:jline-terminal-jansi:3.21.0")
+    compileOnly("org.jline:jline-terminal-jansi:3.25.1")
 }
 
 tasks.withType<Test> {
