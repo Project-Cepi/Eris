@@ -42,7 +42,7 @@ dependencies {
     compileOnly("com.github.Minestom:Minestom:7867313290")
 
     // import kotlinx serialization
-    compileOnly("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.1")
+    compileOnly("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
 
     // Javacord
     implementation("org.javacord", "javacord", "3.3.2")
